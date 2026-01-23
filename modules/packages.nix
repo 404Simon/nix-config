@@ -2,6 +2,8 @@
 
 {
   home.packages = with pkgs; [
+    zip
+    unzip
     ripgrep
     fd
     fzf
@@ -26,6 +28,7 @@
     networkmanager-openvpn
     texlive.combined.scheme-full
     typst
+    anki-bin
 
     calcure
     newsboat

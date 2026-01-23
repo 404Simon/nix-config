@@ -56,7 +56,7 @@
       "$superShift" = "SUPER_SHIFT";
 
       exec-once = [
-        "ironbar & hyprpaper & swaync & hypridle & hyprsunset & nm-applet"
+        "ironbar & swaync & nm-applet"
         "~/dev/librepods/linux/build/librepods --hide"
         "$browser"
         "$terminal"
