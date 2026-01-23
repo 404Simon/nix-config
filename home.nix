@@ -9,6 +9,7 @@
     ./modules/tmux.nix
     ./modules/ghostty.nix
     ./modules/hyprland.nix
+    ./modules/opencode.nix
   ];
 
   targets.genericLinux.enable = true;
