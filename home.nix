@@ -7,6 +7,7 @@
     ./modules/neovim.nix
     ./modules/git.nix
     ./modules/tmux.nix
+    ./modules/ghostty.nix
   ];
 
   targets.genericLinux.enable = true;
