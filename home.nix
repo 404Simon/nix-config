@@ -9,7 +9,6 @@
     ./modules/tmux.nix
     ./modules/ghostty.nix
     ./modules/hyprland.nix
-    ./modules/hyprpaper.nix
   ];
 
   targets.genericLinux.enable = true;

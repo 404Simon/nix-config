@@ -8,6 +8,9 @@
 # needed to change exec path in /usr/share/wayland-sessions/hyprland.desktop to nix managed hyprland binary
 
 {
+  # Create symlink for mocha.conf
+  home.file.".config/hypr/mocha.conf".source = ../resources/hypr/mocha.conf;
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -228,7 +231,6 @@
 
   home.packages = with pkgs; [
     hyprpaper
-    hyprlock
     hypridle
     hyprpicker
     hyprshot
@@ -240,4 +242,149 @@
     playerctl
     networkmanager
   ];
+
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        lock_cmd = "pidof hyprlock || hyprlock";
+        before_sleep_cmd = "loginctl lock-session";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+      };
+
+      listener = [
+        {
+          timeout = 300;
+          on-timeout = "brightnessctl -s set 10";
+          on-resume = "brightnessctl -r";
+        }
+        {
+          timeout = 330;
+          on-timeout = "loginctl lock-session";
+        }
+        {
+          timeout = 350;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
+        }
+        # Uncomment to enable suspend after 420 seconds (7 minutes)
+        # {
+        #   timeout = 420;
+        #   on-timeout = "systemctl suspend";
+        # }
+      ];
+    };
+  };
+
+  programs.hyprlock = {
+    enable = true;
+    package = pkgs.runCommand "hyprlock-wrapped" { } ''
+      mkdir -p $out/bin
+      ln -s /usr/bin/hyprlock $out/bin/hyprlock
+    '';
+    settings = {
+      source = "$HOME/.config/hypr/mocha.conf";
+
+      "$accent" = "$mauve";
+      "$accentAlpha" = "$mauveAlpha";
+      "$font" = "JetBrainsMono Nerd Font";
+
+      general = {
+        disable_loading_bar = true;
+        hide_cursor = true;
+      };
+
+      background = [
+        {
+          monitor = "";
+          path = "~/dotfiles/wallpapers/gta/dark/Grassrivers_03.da407d63.jpg";
+          blur_passes = 0;
+          color = "$base";
+        }
+      ];
+
+      label = [
+        # TIME
+        {
+          monitor = "";
+          text = ''cmd[update:30000] echo "$(date +"%R")"'';
+          color = "$text";
+          font_size = 90;
+          font_family = "$font";
+          position = "-30, 0";
+          halign = "right";
+          valign = "top";
+        }
+        # DATE
+        {
+          monitor = "";
+          text = ''cmd[update:43200000] echo "$(date +"%A, %d %B %Y")"'';
+          color = "$text";
+          font_size = 25;
+          font_family = "$font";
+          position = "-30, -150";
+          halign = "right";
+          valign = "top";
+        }
+      ];
+
+      input-field = [
+        {
+          monitor = "";
+          size = "400, 60";
+          outline_thickness = 4;
+          dots_size = 0.2;
+          dots_spacing = 0.2;
+          dots_center = true;
+          outer_color = "$accent";
+          inner_color = "$surface0";
+          font_color = "$text";
+          fade_on_empty = false;
+          placeholder_text = ''<span foreground="##$textAlpha"><i>󰌾 Logged in as </i><span foreground="##$accentAlpha">$USER</span></span>'';
+          hide_input = false;
+          check_color = "$accent";
+          fail_color = "$red";
+          fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
+          capslock_color = "$yellow";
+          position = "0, 0";
+          halign = "center";
+          valign = "center";
+        }
+      ];
+    };
+  };
+
+  services.hyprsunset = {
+    enable = true;
+    settings = {
+      max-gamma = 150;
+
+      profile = [
+        {
+          time = "7:30";
+          identity = true;
+        }
+        {
+          time = "21:00";
+          temperature = 3500;
+          gamma = 0.8;
+        }
+      ];
+    };
+  };
+
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      splash = false;
+
+      # preload = [
+      #   "/home/simon/Bilder/Wallpapers/dark/Grassrivers_03.da407d63.jpg"
+      # ];
+      #
+      # wallpaper = [
+      #   ", /home/simon/Bilder/Wallpapers/dark/Grassrivers_03.da407d63.jpg"
+      # ];
+    };
+  };
 }
