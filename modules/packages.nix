@@ -6,17 +6,11 @@
     fd
     fzf
     jq
-    bat
     eza
     zoxide
-    github-cli
-    lazygit
-    direnv
     lazysql
     nixfmt-rfc-style # Nix formatter for nil LSP
     nil # Nix LSP server
-    starship
-    tmux
     python3
     nodejs
     go

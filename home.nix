@@ -6,6 +6,7 @@
     ./modules/shell.nix
     ./modules/neovim.nix
     ./modules/git.nix
+    ./modules/tmux.nix
   ];
 
   targets.genericLinux.enable = true;

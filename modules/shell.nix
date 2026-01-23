@@ -207,7 +207,11 @@
 
   programs.bat = {
     enable = true;
+    config.theme = "tokyonight_night";
   };
+
+  # Copy custom theme
+  xdg.configFile."bat/themes/tokyonight_night.tmTheme".source = ../bat/tokyonight_night.tmTheme;
 
   programs.starship = {
     enable = true;
