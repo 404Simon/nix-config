@@ -1,4 +1,4 @@
-{ pkgs, nixGLPkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -28,7 +28,7 @@
     networkmanager-openvpn
     texlive.combined.scheme-full
     typst
-    anki-bin
+    anki
 
     calcure
     newsboat
