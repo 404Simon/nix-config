@@ -8,17 +8,32 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      nixgl,
+      ...
+    }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in {
+      nixGLPkgs = nixgl.packages.${system};
+    in
+    {
       homeConfigurations."simon" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        extraSpecialArgs = { inherit nixpkgs; };
+        extraSpecialArgs = {
+          inherit nixpkgs nixGLPkgs;
+        };
 
         modules = [
           ./home.nix
