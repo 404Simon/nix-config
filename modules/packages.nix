@@ -22,6 +22,7 @@
     yazi
     mpv
     rmpc
+    keepassxc
 
     # Uni
     eduvpn-client

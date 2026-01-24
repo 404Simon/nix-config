@@ -10,6 +10,9 @@
     ./modules/ghostty.nix
     ./modules/hyprland.nix
     ./modules/opencode.nix
+    ./modules/mpd.nix
+    ./modules/rmpc.nix
+    ./modules/mpv.nix
   ];
 
   targets.genericLinux.enable = true;
