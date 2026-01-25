@@ -15,6 +15,8 @@
     ./modules/mpv.nix
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   targets.genericLinux.enable = true;
 
   home.username = "simon";

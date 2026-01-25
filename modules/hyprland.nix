@@ -9,7 +9,7 @@
 
 {
   # Create symlink for mocha.conf
-  home.file.".config/hypr/mocha.conf".source = ../resources/hypr/mocha.conf;
+  xdg.configFile."hypr/mocha.conf".source = ../resources/hypr/mocha.conf;
 
   wayland.windowManager.hyprland = {
     enable = true;
