@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     vivaldi
+    librewolf
     zip
     unzip
     ripgrep
@@ -10,7 +11,8 @@
     fzf
     jq
     tldr
-    vesktop
+    fastfetch
+    # vesktop
     ncdu
     eza
     zoxide
@@ -48,6 +50,5 @@
 
     # Gaming
     moonlight-qt
-    steam
   ];
 }
