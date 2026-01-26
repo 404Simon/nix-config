@@ -8,6 +8,8 @@
     unzip
     ripgrep
     fd
+    zathura
+    feh
     fzf
     jq
     tldr

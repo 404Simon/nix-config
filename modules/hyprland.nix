@@ -49,7 +49,7 @@
 
       "$terminal" =
         "env GTK_IM_MODULE=ibus XMODIFIERS=@im=ibus ${pkgs.ghostty}/bin/ghostty --gtk-single-instance=true";
-      "$browser" = "zen-browser";
+      "$browser" = "qutebrowser";
       "$fileManager" = "dolphin";
       "$menu" = "wofi --show drun";
       "$mainMod" = "SUPER";
@@ -214,6 +214,7 @@
       windowrulev2 = [
         # Workspace assignments
         "workspace 1, class:^(zen)$"
+        "workspace 1, class:^(org.qutebrowser.qutebrowser)$"
         "workspace 2, class:^(com.mitchellh.ghostty)$"
         "workspace 4, class:^(Vivaldi-stable)$"
         "workspace 7, class:^(org.mozilla.Thunderbird)$"

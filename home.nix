@@ -14,6 +14,7 @@
     ./modules/rmpc.nix
     ./modules/mpv.nix
     ./modules/qutebrowser.nix
+    ./modules/xdg.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
