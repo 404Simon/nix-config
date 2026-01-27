@@ -210,6 +210,13 @@
     config.theme = "tokyonight_night";
   };
 
+  programs.btop = {
+    enable = true;
+    settings = {
+      color_theme = "matcha-dark-sea";
+    };
+  };
+
   # Copy custom theme
   xdg.configFile."bat/themes/tokyonight_night.tmTheme".source =
     ../resources/bat/tokyonight_night.tmTheme;

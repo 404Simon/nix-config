@@ -4,6 +4,14 @@
   home.packages = with pkgs; [
     vivaldi
     librewolf
+    ungoogled-chromium
+    kdePackages.dolphin
+    imagemagick
+    rsync
+    restic
+    diceware
+    wakeonlan
+    exiftool
     zip
     unzip
     ripgrep
@@ -11,9 +19,11 @@
     zathura
     feh
     fzf
+    gum
     jq
     tldr
     fastfetch
+    subfinder
     # vesktop
     ncdu
     eza
@@ -26,6 +36,7 @@
     python3
     nodejs
     go
+    uv
     rustup # includes cargo
     php
     phpPackages.composer
@@ -44,6 +55,7 @@
     obsidian
     onlyoffice-desktopeditors
     anki
+    zotero
 
     calcure
     newsboat

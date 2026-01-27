@@ -56,6 +56,10 @@
       yt = "https://www.youtube.com/results?search_query={}";
     };
 
+    quickmarks = {
+      yt = "https://www.youtube.com";
+    };
+
     keyBindings.normal = {
       # dark mode
       "<Ctrl-d>" = "config-cycle colors.webpage.darkmode.enabled";
