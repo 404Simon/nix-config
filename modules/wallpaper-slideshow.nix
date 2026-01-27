@@ -7,6 +7,11 @@ in
   systemd.user.services.wallpaper = {
     Unit = {
       Description = "Changes the Wallpaper";
+      After = [
+        "graphical-session.target"
+        "hyprpaper.service"
+      ];
+      Requires = [ "hyprpaper.service" ];
     };
 
     Service = {
@@ -16,7 +21,11 @@ in
         "WALLPAPER_HISTORY_LOG=${wallpaperConfig.wallpaperHistoryLog}"
         "WALLPAPER_CACHE_DB=${wallpaperConfig.wallpaperCacheDb}"
       ];
-      ExecStart = ''/bin/bash -c 'WALLPAPER=$(/home/simon/dev/wallpaper_slideshow/target/release/wallpaper_slideshow | tail -n1) && hyprctl hyprpaper preload "$WALLPAPER" && hyprctl hyprpaper wallpaper ",$WALLPAPER"' '';
+      ExecStart = ''/bin/bash -c 'for i in {1..5}; do WALLPAPER=$(/home/simon/dev/wallpaper_slideshow/target/release/wallpaper_slideshow | tail -n1) && hyprctl hyprpaper preload "$WALLPAPER" && hyprctl hyprpaper wallpaper ",$WALLPAPER" && exit 0 || sleep 1; done; exit 1' '';
+    };
+
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
     };
   };
 
@@ -26,7 +35,6 @@ in
     };
 
     Timer = {
-      OnBootSec = "2min";
       OnUnitActiveSec = "15min";
     };
 

@@ -37,6 +37,8 @@
       content.autoplay = false;
       url.auto_search = "naive";
       completion.web_history.max_items = 1000;
+      colors.webpage.darkmode.algorithm = "lightness-cielab";
+      colors.webpage.darkmode.policy.images = "never";
 
       url.default_page = "https://www.startpage.com";
       url.start_pages = [ "https://www.startpage.com" ];
@@ -71,6 +73,8 @@
         "jseval -q var v = document.querySelector('video'); if(v) { v.playbackRate = Math.min(v.playbackRate + 0.1, 8); window.qute_speed_display?.remove(); var d = document.createElement('div'); d.id = 'qute_speed_display'; d.textContent = 'Speed: ' + v.playbackRate.toFixed(1) + 'x'; d.style = 'position:fixed;top:20px;right:20px;background:rgba(0,0,0,0.8);color:white;padding:10px 20px;border-radius:5px;z-index:999999;font-size:20px;font-family:sans-serif'; document.body.appendChild(d); setTimeout(() => d.remove(), 1000); }";
       "s" =
         "jseval -q var v = document.querySelector('video'); if(v) { v.playbackRate = Math.max(v.playbackRate - 0.1, 0.25); window.qute_speed_display?.remove(); var d = document.createElement('div'); d.id = 'qute_speed_display'; d.textContent = 'Speed: ' + v.playbackRate.toFixed(1) + 'x'; d.style = 'position:fixed;top:20px;right:20px;background:rgba(0,0,0,0.8);color:white;padding:10px 20px;border-radius:5px;z-index:999999;font-size:20px;font-family:sans-serif'; document.body.appendChild(d); setTimeout(() => d.remove(), 1000); }";
+      "V" =
+        "config-cycle -p content.cookies.accept all no-3rdparty ;; config-cycle -p content.headers.referer always same-domain ;; config-cycle -p content.canvas_reading true false ;; config-cycle -p colors.webpage.darkmode.enabled false true";
     };
   };
 }

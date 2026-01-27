@@ -24,7 +24,7 @@
     tldr
     fastfetch
     subfinder
-    # vesktop
+    vesktop
     ncdu
     eza
     zoxide

@@ -10,5 +10,5 @@
 
   # just symlink for now
   xdg.configFile."nvim".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/nvim";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/resources/nvim";
 }
