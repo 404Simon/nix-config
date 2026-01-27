@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  wallpaperConfig = import ./wallpaper-config.nix;
+in
 {
   programs.zsh = {
     enable = true;
@@ -137,7 +140,7 @@
       open = "xdg-open";
       todo = "vim ~/Vorlesungen/TODO.md";
       b = "bg && disown";
-      winfo = "/home/simon/dev/wallpaper_slideshow/target/release/wallpaper-info";
+      winfo = "WALLPAPER_DIR=\"$WALLPAPER_DIR\" WALLPAPER_HISTORY_LOG=\"$WALLPAPER_HISTORY_LOG\" /home/simon/dev/wallpaper_slideshow/target/release/wallpaper-info";
       shutdown = "pangolin down; systemctl poweroff";
       reboot = "pangolin down; systemctl reboot";
       gaming = "ssh xmg.server \"wakeonlan 88:d7:f6:7a:5d:eb\"";
@@ -161,6 +164,11 @@
     GRAALVM_HOME = "$HOME/.jdks/selected_java/java";
 
     BUN_INSTALL = "$HOME/.bun";
+
+    # Wallpaper configuration
+    WALLPAPER_DIR = "${wallpaperConfig.wallpaperDir}";
+    WALLPAPER_HISTORY_LOG = "${wallpaperConfig.wallpaperHistoryLog}";
+    WALLPAPER_CACHE_DB = "${wallpaperConfig.wallpaperCacheDb}";
   };
 
   home.sessionPath = [

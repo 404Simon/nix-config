@@ -15,11 +15,18 @@
     ./modules/mpv.nix
     ./modules/qutebrowser.nix
     ./modules/xdg.nix
+    ./modules/wallpaper-slideshow.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
 
   targets.genericLinux.enable = true;
+
+  nix.gc = {
+    automatic = true;
+    options = "--delete-older-than 10d";
+    persistent = true;
+  };
 
   home.username = "simon";
   home.homeDirectory = "/home/simon";

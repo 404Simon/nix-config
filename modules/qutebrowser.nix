@@ -58,6 +58,9 @@
 
     quickmarks = {
       yt = "https://www.youtube.com";
+      my = "https://www.mydealz.de";
+      gh = "https://github.com";
+      campo = "https://www.campo.fau.de";
     };
 
     keyBindings.normal = {
