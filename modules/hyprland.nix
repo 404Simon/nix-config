@@ -142,7 +142,7 @@
         # External display management
         "$mainMod, F1, exec, current=$(brightnessctl g); if [ \"$current\" -gt 0 ]; then brightnessctl s 0; else brightnessctl s 19200; fi"
         "$mainMod, F2, exec, MON=DP-3; MODELINE=\"2560x1440@74.97,0x0,1\"; if hyprctl monitors | grep -q \"$MON\"; then for ws in $(hyprctl workspaces | grep -oP 'workspace ID \\K[0-9]+'); do hyprctl dispatch moveworkspacetomonitor \"$ws eDP-1\"; done; hyprctl keyword monitor \"$MON,disable\"; else hyprctl keyword monitor \"$MON,$MODELINE\"; current=$(hyprctl activeworkspace | grep -oP 'workspace ID \\K[0-9]+'); hyprctl dispatch workspace 10; hyprctl dispatch moveworkspacetomonitor 10 DP-3; hyprctl dispatch workspace $current; for ws in $(hyprctl workspaces | grep -oP 'workspace ID \\K[0-9]'); do hyprctl dispatch moveworkspacetomonitor \"$ws eDP-1\"; done; fi"
-        "$mainMod, F3, exec, /home/simon/dotfiles/monitor_workspace_switcher.sh"
+        "$mainMod, F3, exec, ${./..}/resources/shell/scripts/monitor_workspace_switcher.sh"
 
         # Screenshots
         ", PRINT, exec, hyprshot -m window -m active"
@@ -150,11 +150,11 @@
         "ctrl, PRINT, exec, hyprshot -m region"
 
         # Audio
-        "$superShift, a, exec, /home/simon/dotfiles/speaker_switch.sh"
-        "$superShift, s, exec, /home/simon/dotfiles/spotify_wofi.sh"
-        "$superShift, r, exec, /home/simon/dotfiles/rmpc_wofi.sh"
+        "$superShift, a, exec, ${./..}/resources/shell/scripts/speaker_switch.sh"
+        "$superShift, s, exec, ${./..}/resources/shell/scripts/spotify_wofi.sh"
+        "$superShift, r, exec, ${pkgs.ghostty}/bin/ghostty --title=rmpc-float -e rmpc"
         "$mainMod, r, exec, /home/simon/dev/rmpc/target/release/rmpc togglepause"
-        "$superShift, p, exec, /home/simon/dotfiles/playlist_selection.sh"
+        "$superShift, p, exec, ${./..}/resources/shell/scripts/playlist_selection.sh"
         "$mainMod, p, exec, hyprpicker -a"
 
         # Vim navigation
@@ -212,10 +212,15 @@
 
       # Window rules (old syntax - converted)
       windowrulev2 = [
+        # rmpc floating window
+        "float, title:^(rmpc-float)$"
+        "center, title:^(rmpc-float)$"
+        "size 80% 80%, title:^(rmpc-float)$"
+
         # Workspace assignments
         "workspace 1, class:^(zen)$"
         "workspace 1, class:^(org.qutebrowser.qutebrowser)$"
-        "workspace 2, class:^(com.mitchellh.ghostty)$"
+        "workspace 2, class:^(com.mitchellh.ghostty)$, title:^(?!rmpc-float).*$"
         "workspace 4, class:^(Vivaldi-stable)$"
         "workspace 7, class:^(org.mozilla.Thunderbird)$"
         "workspace 8, class:^(Spotify)$"
@@ -299,7 +304,7 @@
       background = [
         {
           monitor = "";
-          path = "~/dotfiles/wallpapers/gta/dark/Grassrivers_03.da407d63.jpg";
+          path = "~/wallpapers/gta/dark/Grassrivers_03.da407d63.jpg";
           blur_passes = 0;
           color = "$base";
         }

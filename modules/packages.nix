@@ -20,7 +20,6 @@
     ffmpeg-full
     zathura
     feh
-    fzf
     gum
     jq
     tldr
@@ -28,8 +27,6 @@
     subfinder
     vesktop
     ncdu
-    eza
-    zoxide
     mise
     lazysql
     lazydocker
@@ -43,8 +40,6 @@
     php
     phpPackages.composer
     yazi
-    mpv
-    rmpc
     keepassxc
     zapzap
 

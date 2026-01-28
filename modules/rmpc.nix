@@ -1,7 +1,12 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  ...
+}:
 
 {
-  home.packages = [ pkgs.rmpc ];
+  home.packages = [ pkgs-unstable.rmpc ];
 
   xdg.configFile."rmpc/config.ron".text = ''
     #![enable(implicit_some)]
