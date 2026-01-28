@@ -240,11 +240,12 @@ in
         truncate_to_repo = false;
         substitutions = {
           "Documents" = "󰈙 ";
-          "Downloads" = " ";
-          "Music" = " ";
-          "Pictures" = " ";
+          "Downloads" = " ";
+          "Music" = " ";
+          "Pictures" = " ";
           "~/dev" = "δ";
           "dotfiles" = "⚙ ";
+          "nix-config" = "";
         };
       };
 

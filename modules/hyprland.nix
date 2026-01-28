@@ -238,6 +238,7 @@
     hyprsunset
     wofi
     cliphist
+    swaynotificationcenter
     wl-clipboard
     brightnessctl
     playerctl

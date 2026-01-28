@@ -9,6 +9,7 @@
     ./modules/tmux.nix
     ./modules/ghostty.nix
     ./modules/hyprland.nix
+    ./modules/ironbar.nix
     ./modules/opencode.nix
     ./modules/mpd.nix
     ./modules/rmpc.nix

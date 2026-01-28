@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     vivaldi
-    librewolf
     ungoogled-chromium
     kdePackages.dolphin
     imagemagick
@@ -16,6 +15,9 @@
     unzip
     ripgrep
     fd
+    fwupd
+    yt-dlp
+    ffmpeg-full
     zathura
     feh
     fzf
