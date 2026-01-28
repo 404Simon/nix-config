@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 projects=($(find ~/Vorlesungen -maxdepth 1 -mindepth 1 -not -name '.git' -type d -exec basename {} \;))
 

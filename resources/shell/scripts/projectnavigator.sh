@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 projects=($(find ~/dev -maxdepth 1 -mindepth 1 -type d -exec basename {} \;))
 

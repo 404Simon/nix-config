@@ -2,6 +2,7 @@
 
 let
   wallpaperConfig = import ./wallpaper-config.nix;
+  scriptsDir = "${config.home.homeDirectory}/nix-config/resources/shell/scripts";
 in
 {
   programs.zsh = {
@@ -124,13 +125,13 @@ in
       sail = "./vendor/bin/sail";
       db = "lazysql \"file:database/database.sqlite?loc=auto\"";
 
-      dev = "eval \"$(${config.home.homeDirectory}/nix-config/scripts/projectnavigator.sh)\"";
-      v = "eval \"$(${config.home.homeDirectory}/nix-config/scripts/vorlesungsnavigator.sh)\"";
+      dev = "eval \"$(${scriptsDir}/projectnavigator.sh)\"";
+      v = "eval \"$(${scriptsDir}/vorlesungsnavigator.sh)\"";
       o = "cd \"$OBSIDIAN_VAULT\" && nvim";
 
       blog = "~/dev/quartz/automation.sh";
-      lyrics = "${config.home.homeDirectory}/nix-config/scripts/lyric_search.py";
-      plz = "${config.home.homeDirectory}/nix-config/scripts/plz.sh";
+      lyrics = "${scriptsDir}/lyric_search.py";
+      plz = "${scriptsDir}/plz.sh";
 
       c = "calcure";
       n = "newsboat";
@@ -180,7 +181,7 @@ in
     "$HOME/.jdks/selected_java/java/bin"
     "/usr/local/texlive/2024/bin/x86_64-linux"
     "$HOME/.bun/bin"
-    "${config.home.homeDirectory}/nix-config/scripts"
+    scriptsDir
   ];
 
   programs.fzf = {

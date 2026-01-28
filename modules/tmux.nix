@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  scriptsDir = "${config.home.homeDirectory}/nix-config/resources/shell/scripts";
+in
 {
   programs.tmux = {
     enable = true;
@@ -61,7 +64,7 @@
       bind C-l send-keys 'C-l'
 
       # Tmux sessionizer
-      bind-key f run-shell "tmux neww ${config.home.homeDirectory}/nix-config/scripts/tmux-sessionizer.sh"
+      bind-key f run-shell "tmux neww ${scriptsDir}/tmux-sessionizer.sh"
 
       # ============================================================================
       # Theme Configuration (Dracula)
