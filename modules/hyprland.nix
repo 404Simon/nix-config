@@ -5,6 +5,10 @@
   ...
 }:
 
+let
+  scriptsDir = "${config.home.homeDirectory}/nix-config/resources/shell/scripts";
+in
+
 # needed to change exec path in /usr/share/wayland-sessions/hyprland.desktop to nix managed hyprland binary
 
 {
@@ -142,7 +146,7 @@
         # External display management
         "$mainMod, F1, exec, current=$(brightnessctl g); if [ \"$current\" -gt 0 ]; then brightnessctl s 0; else brightnessctl s 19200; fi"
         "$mainMod, F2, exec, MON=DP-3; MODELINE=\"2560x1440@74.97,0x0,1\"; if hyprctl monitors | grep -q \"$MON\"; then for ws in $(hyprctl workspaces | grep -oP 'workspace ID \\K[0-9]+'); do hyprctl dispatch moveworkspacetomonitor \"$ws eDP-1\"; done; hyprctl keyword monitor \"$MON,disable\"; else hyprctl keyword monitor \"$MON,$MODELINE\"; current=$(hyprctl activeworkspace | grep -oP 'workspace ID \\K[0-9]+'); hyprctl dispatch workspace 10; hyprctl dispatch moveworkspacetomonitor 10 DP-3; hyprctl dispatch workspace $current; for ws in $(hyprctl workspaces | grep -oP 'workspace ID \\K[0-9]'); do hyprctl dispatch moveworkspacetomonitor \"$ws eDP-1\"; done; fi"
-        "$mainMod, F3, exec, ${./..}/resources/shell/scripts/monitor_workspace_switcher.sh"
+        "$mainMod, F3, exec, ${scriptsDir}/monitor_workspace_switcher.sh"
 
         # Screenshots
         ", PRINT, exec, hyprshot -m window -m active"
@@ -150,11 +154,11 @@
         "ctrl, PRINT, exec, hyprshot -m region"
 
         # Audio
-        "$superShift, a, exec, ${./..}/resources/shell/scripts/speaker_switch.sh"
-        "$superShift, s, exec, ${./..}/resources/shell/scripts/spotify_wofi.sh"
+        "$superShift, a, exec, ${scriptsDir}/speaker_switch.sh"
+        "$superShift, s, exec, ${scriptsDir}/spotify_wofi.sh"
         "$superShift, r, exec, ${pkgs.ghostty}/bin/ghostty --title=rmpc-float -e rmpc"
         "$mainMod, r, exec, /home/simon/dev/rmpc/target/release/rmpc togglepause"
-        "$superShift, p, exec, ${./..}/resources/shell/scripts/playlist_selection.sh"
+        "$superShift, p, exec, ${scriptsDir}/playlist_selection.sh"
         "$mainMod, p, exec, hyprpicker -a"
 
         # Vim navigation
