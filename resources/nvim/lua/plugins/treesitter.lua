@@ -3,9 +3,11 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		config = function()
-			local config = require("nvim-treesitter.configs")
-			config.setup({
+			local treesitter = require("nvim-treesitter")
+
+			treesitter.setup({
 				auto_install = true,
+
 				ensure_installed = {
 					"bash",
 					"html",
@@ -13,9 +15,13 @@ return {
 					"json",
 					"lua",
 					"php",
-          "markdown",
+					"markdown",
 				},
-				highlight = { enable = true },
+
+				highlight = {
+					enable = true,
+					additional_vim_regex_highlighting = false,
+				},
 				indent = { enable = false },
 			})
 		end,

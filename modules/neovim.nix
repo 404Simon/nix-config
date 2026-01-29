@@ -11,4 +11,8 @@
   # just symlink for now
   xdg.configFile."nvim".source =
     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/resources/nvim";
+
+  home.packages = with pkgs; [
+    luajit
+  ];
 }

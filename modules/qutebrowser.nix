@@ -16,6 +16,7 @@
       scrolling.smooth = false;
       colors.webpage.darkmode.enabled = true;
       downloads.location.directory = "~/Downloads";
+      content.pdfjs = true;
 
       # Ad blocking
       content.blocking.enabled = true;
@@ -40,8 +41,8 @@
       colors.webpage.darkmode.algorithm = "lightness-cielab";
       colors.webpage.darkmode.policy.images = "never";
 
-      url.default_page = "https://www.startpage.com";
-      url.start_pages = [ "https://www.startpage.com" ];
+      url.default_page = "about:blank";
+      url.start_pages = [ "about:blank" ];
     };
 
     searchEngines = {
@@ -63,6 +64,7 @@
       my = "https://www.mydealz.de";
       gh = "https://github.com";
       campo = "https://www.campo.fau.de";
+      gem = "https://gemini.google.com/app";
     };
 
     keyBindings.normal = {
