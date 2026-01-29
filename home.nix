@@ -17,6 +17,7 @@
     ./modules/qutebrowser.nix
     ./modules/xdg.nix
     ./modules/wallpaper-slideshow.nix
+    ./modules/zathura.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

@@ -18,7 +18,6 @@
     fwupd
     yt-dlp
     ffmpeg-full
-    zathura
     feh
     gum
     jq
