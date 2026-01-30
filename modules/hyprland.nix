@@ -60,16 +60,12 @@ in
       "$superShift" = "SUPER_SHIFT";
 
       exec-once = [
-        "ironbar & swaync & nm-applet"
+        "ironbar & nm-applet"
         "~/dev/librepods/linux/build/librepods --hide"
         "$browser"
         "$terminal"
         "vesktop"
         "thunderbird"
-        "wl-paste --type text --watch cliphist store"
-        "wl-paste --type image --watch cliphist store"
-        "systemctl --user start wallpaper.service"
-        "syncthing --no-browser"
       ];
 
       general = {
@@ -246,10 +242,8 @@ in
     hyprshot
     hyprsunset
     wofi
-    cliphist
-    swaynotificationcenter
-    wl-clipboard
     brightnessctl
+    libnotify # provides notify-send
     playerctl
     networkmanager
   ];
@@ -398,4 +392,8 @@ in
       # ];
     };
   };
+
+  services.cliphist.enable = true;
+  services.syncthing.enable = true;
+  services.swaync.enable = true;
 }

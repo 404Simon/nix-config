@@ -17,6 +17,7 @@
     fd
     fwupd
     yt-dlp
+    poppler-utils
     ffmpeg-full
     feh
     gum
