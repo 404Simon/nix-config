@@ -131,7 +131,6 @@ in
         "$mainMod, N, layoutmsg, togglesplit"
 
         "$mainMod, B, exec, ironbar bar top toggle-visible"
-        "$mainMod, R, exec, nmcli radio wifi \"$(nmcli radio wifi | grep -q 'enabled' && echo 'off' || echo 'on')\""
         "$mainMod, W, exec, systemctl --user start wallpaper.service"
         "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
 
