@@ -17,6 +17,7 @@
       "image/png" = "feh.desktop";
       "image/jpeg" = "feh.desktop";
       "image/gif" = "feh.desktop";
+      "image/webp" = "feh.desktop";
 
       "video/mp4" = "mpv.desktop";
       "video/x-matroska" = "mpv.desktop";
