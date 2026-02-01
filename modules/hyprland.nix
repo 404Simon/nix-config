@@ -361,8 +361,6 @@ in
   services.hyprsunset = {
     enable = true;
     settings = {
-      max-gamma = 150;
-
       profile = [
         {
           time = "7:30";
@@ -371,7 +369,6 @@ in
         {
           time = "21:00";
           temperature = 3500;
-          gamma = 0.8;
         }
       ];
     };

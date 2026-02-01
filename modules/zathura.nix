@@ -9,7 +9,8 @@
     mappings = {
       "<Right>" = "navigate next";
       "<Left>" = "navigate previous";
-      "y" = ''exec "sh -c 'pdftoppm -f $PAGE -l $PAGE -png \"$FILE\" | wl-copy'"'';
+      "Y" = ''exec "sh -c 'pdftoppm -f $PAGE -l $PAGE -png \"$FILE\" | wl-copy'"'';
+      "y" = ''exec "sh -c 'pdftotext -f $PAGE -l $PAGE \"$FILE\" - | wl-copy'"'';
     };
   };
 

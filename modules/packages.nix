@@ -9,6 +9,7 @@
       imagemagick
       rsync
       restic
+      localsend
       diceware
       wakeonlan
       exiftool
