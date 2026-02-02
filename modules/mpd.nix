@@ -1,5 +1,12 @@
 { config, pkgs, ... }:
 
+let
+  correctPathsScript = pkgs.writeShellScript "correct_paths.sh" ''
+    #!/usr/bin/env bash
+    cd ${config.home.homeDirectory}/Music/mpd/playlists
+    for file in *.m3u; do sed -i '/^$/d; /^#/d; s|^[^.]|../../&|' "$file"; done
+  '';
+in
 {
   services.mpd = {
     enable = true;
@@ -29,6 +36,34 @@
         plugin "curl"
       }
     '';
+  };
+
+  home.file."Music/mpd/playlists/correct_paths.sh" = {
+    source = correctPathsScript;
+    executable = true;
+  };
+
+  systemd.user.services.mpd-correct-paths = {
+    Unit = {
+      Description = "Correct MPD playlist paths";
+    };
+    Service = {
+      Type = "oneshot";
+      ExecStart = "${correctPathsScript}";
+    };
+  };
+
+  systemd.user.timers.mpd-correct-paths = {
+    Unit = {
+      Description = "Run MPD playlist path correction every 5 minutes";
+    };
+    Timer = {
+      OnBootSec = "1min";
+      OnUnitActiveSec = "5min";
+    };
+    Install = {
+      WantedBy = [ "timers.target" ];
+    };
   };
 
   home.activation.mpdDirectories = config.lib.dag.entryAfter [ "writeBoundary" ] ''
