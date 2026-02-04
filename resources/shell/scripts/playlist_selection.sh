@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-rmpc='/home/simon/dev/rmpc/target/release/rmpc'
-
 playlist_dir="$HOME/Music/mpd/playlists"
 playlists=$(find "$playlist_dir" -name "*.m3u" -type f -printf "%f\n" | sed 's/\.m3u$//')
 
@@ -14,13 +12,13 @@ playlist_file="$playlist_dir/$choice.m3u"
 
 music_root="$HOME/Music"
 
-$rmpc clear
+rmpc clear
 
 mapfile -t tracks < <(grep -v -e '^#' -e '^$' "$playlist_file")
 
 while IFS= read -r track; do
     track="${track#../../}"
-    $rmpc add "$track"
+    rmpc add "$track"
 done < <(printf '%s\n' "${tracks[@]}" | shuf)
 
-$rmpc play
+rmpc play

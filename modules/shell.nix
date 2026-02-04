@@ -164,8 +164,6 @@ in
     GRAAL_HOME = "$HOME/.jdks/selected_java/java";
     GRAALVM_HOME = "$HOME/.jdks/selected_java/java";
 
-    BUN_INSTALL = "$HOME/.bun";
-
     # Wallpaper configuration
     WALLPAPER_DIR = "${wallpaperConfig.wallpaperDir}";
     WALLPAPER_HISTORY_LOG = "${wallpaperConfig.wallpaperHistoryLog}";
@@ -179,8 +177,6 @@ in
     "$HOME/.composer/vendor/bin"
     "$HOME/.config/composer/vendor/bin"
     "$HOME/.jdks/selected_java/java/bin"
-    "/usr/local/texlive/2024/bin/x86_64-linux"
-    "$HOME/.bun/bin"
     scriptsDir
   ];
 

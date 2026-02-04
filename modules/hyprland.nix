@@ -152,7 +152,7 @@ in
         "$superShift, a, exec, ${scriptsDir}/speaker_switch.sh"
         "$superShift, s, exec, ${scriptsDir}/spotify_wofi.sh"
         "$superShift, r, exec, ${pkgs.ghostty}/bin/ghostty --title=rmpc-float -e rmpc"
-        "$mainMod, r, exec, /home/simon/dev/rmpc/target/release/rmpc togglepause"
+        "$mainMod, r, exec, rmpc togglepause"
         "$superShift, p, exec, ${scriptsDir}/playlist_selection.sh"
         "$mainMod, p, exec, hyprpicker -a"
 
