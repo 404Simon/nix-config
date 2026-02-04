@@ -135,7 +135,7 @@ in
 
       c = "calcure";
       n = "newsboat";
-      r = "/home/simon/dev/rmpc/target/release/rmpc";
+      r = "rmpc";
 
       suspend = "systemctl suspend";
       open = "xdg-open";

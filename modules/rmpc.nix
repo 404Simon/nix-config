@@ -17,7 +17,6 @@
         cache_dir: Some("/tmp/rmpc/cache"),
         lyrics_dir: Some("${config.home.homeDirectory}/Music/mpd/lyrics"),
         password: None,
-        theme: "tokyonight",
         volume_step: 5,
         max_fps: 30,
         scrolloff: 0,
