@@ -10,6 +10,8 @@
       rsync
       restic
       localsend
+      pdftk
+      pdfchain
       diceware
       wakeonlan
       exiftool
