@@ -130,7 +130,7 @@
                 name: "Queue",
                 pane: Split(
                     direction: Horizontal,
-                    panes: [(size: "20%", pane: Pane(AlbumArt)), (size: "80%", pane: Pane(Queue))],
+                    panes: [(size: "40%", pane: Pane(AlbumArt)), (size: "60%", pane: Pane(Queue))],
                 ),
             ),
             (

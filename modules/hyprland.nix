@@ -61,7 +61,7 @@ in
 
       exec-once = [
         "ironbar & nm-applet"
-        "~/dev/librepods/linux/build/librepods --hide"
+        "librepods --hide"
         "$browser"
         "$terminal"
         "vesktop"

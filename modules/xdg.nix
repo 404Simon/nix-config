@@ -12,6 +12,8 @@
 
       "x-scheme-handler/discord" = "vesktop.desktop";
 
+      "x-scheme-handler/mailto" = "thunderbird.desktop";
+
       "application/pdf" = "org.pwmt.zathura.desktop";
 
       "image/png" = "feh.desktop";

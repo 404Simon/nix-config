@@ -68,5 +68,6 @@
     ])
     ++ (with pkgs-unstable; [
       pangolin-cli
+      librepods
     ]);
 }
