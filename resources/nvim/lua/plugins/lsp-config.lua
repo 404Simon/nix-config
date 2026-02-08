@@ -41,7 +41,7 @@ return {
 				"jsonls",
 				"marksman",
 				"phpactor",
-				"pyright",
+				"pyrefly",
 				"stimulus_ls",
 				"stylua",
 				"pint",
