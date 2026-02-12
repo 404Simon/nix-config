@@ -18,11 +18,12 @@ return {
 				"json",
 				"lua",
 				"php",
-				"markdown",
-				"typst",
 				"rust",
 				"python",
 				"java",
+				"markdown",
+				"typst",
+				"latex",
 			})
 
 			vim.api.nvim_create_autocmd("FileType", {
@@ -43,8 +44,12 @@ return {
 
 					-- only start if a parser exists
 					local lang = vim.treesitter.language.get_lang(filetype)
-					if lang and pcall(vim.treesitter.language.add, lang) then
-						vim.treesitter.start()
+					if lang then
+						local ok = pcall(vim.treesitter.start, args.buf, lang)
+						if not ok then
+							-- parser not available, silently skip
+							return
+						end
 					end
 				end,
 			})

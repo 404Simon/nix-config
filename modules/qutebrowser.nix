@@ -52,7 +52,7 @@
       nw = "https://wiki.nixos.org/w/index.php?search={}";
       np = "https://search.nixos.org/packages?query={}";
       no = "https://search.nixos.org/options?query={}";
-      w = "https://en.wikipedia.org/wiki/Special:Search?search={}";
+      wiki = "https://en.wikipedia.org/wiki/Special:Search?search={}";
       dhl = "https://www.dhl.de/de/privatkunden/pakete-empfangen/verfolgen.html?piececode={}";
       hermes = "https://www.myhermes.de/empfangen/sendungsverfolgung/sendungsinformation#{}";
       rust = "https://crates.io/search?q={}";
@@ -65,6 +65,8 @@
       gh = "https://github.com";
       campo = "https://www.campo.fau.de";
       gem = "https://gemini.google.com/app";
+      lm = "https://notebooklm.google.com/";
+      sc = "https://soundcloud.com/discover";
     };
 
     keyBindings.normal = {

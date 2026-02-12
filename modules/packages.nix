@@ -36,7 +36,6 @@
       lazydocker
       nixfmt-rfc-style # Nix formatter for nil LSP
       nil # Nix LSP server
-      python3
       nodejs
       go
       uv
@@ -65,6 +64,13 @@
 
       # Gaming
       moonlight-qt
+
+      # python with global packages
+      (pkgs.python3.withPackages (
+        ps: with ps; [
+          pylatexenc
+        ]
+      ))
     ])
     ++ (with pkgs-unstable; [
       pangolin-cli

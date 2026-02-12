@@ -127,6 +127,7 @@ in
 
       dev = "eval \"$(${scriptsDir}/projectnavigator.sh)\"";
       v = "eval \"$(${scriptsDir}/vorlesungsnavigator.sh)\"";
+      m = "eval \"$(${scriptsDir}/musicnavigator.sh)\"";
       o = "cd \"$OBSIDIAN_VAULT\" && nvim";
 
       blog = "~/dev/quartz/automation.sh";
