@@ -57,6 +57,7 @@
       hermes = "https://www.myhermes.de/empfangen/sendungsverfolgung/sendungsinformation#{}";
       rust = "https://crates.io/search?q={}";
       yt = "https://www.youtube.com/results?search_query={}";
+      sc = "https://soundcloud.com/search?q={}";
     };
 
     quickmarks = {
