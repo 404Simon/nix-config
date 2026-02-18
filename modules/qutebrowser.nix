@@ -55,7 +55,7 @@
       wiki = "https://en.wikipedia.org/wiki/Special:Search?search={}";
       dhl = "https://www.dhl.de/de/privatkunden/pakete-empfangen/verfolgen.html?piececode={}";
       hermes = "https://www.myhermes.de/empfangen/sendungsverfolgung/sendungsinformation#{}";
-      rust = "https://crates.io/search?q={}";
+      cargo = "https://crates.io/search?q={}";
       yt = "https://www.youtube.com/results?search_query={}";
       sc = "https://soundcloud.com/search?q={}";
     };
