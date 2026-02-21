@@ -391,5 +391,5 @@ in
 
   services.cliphist.enable = true;
   services.syncthing.enable = true;
-  services.swaync.enable = true;
+  services.mako.enable = true;
 }
