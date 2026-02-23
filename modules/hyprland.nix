@@ -391,5 +391,13 @@ in
 
   services.cliphist.enable = true;
   services.syncthing.enable = true;
-  services.mako.enable = true;
+  services.mako = {
+    settings.default-timeout = 5000;
+    enable = true;
+    settings = {
+      "mode=do-not-disturb" = {
+        invisible = 1;
+      };
+    };
+  };
 }
