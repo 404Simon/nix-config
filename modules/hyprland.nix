@@ -51,8 +51,9 @@ in
         "HYPRCURSOR_SIZE,24"
       ];
 
-      "$terminal" =
-        "env GTK_IM_MODULE=ibus XMODIFIERS=@im=ibus ${pkgs.ghostty}/bin/ghostty --gtk-single-instance=true";
+      # "$terminal" =
+      #   "env GTK_IM_MODULE=ibus XMODIFIERS=@im=ibus ${pkgs.ghostty}/bin/ghostty --gtk-single-instance=true";
+      "$terminal" = "${pkgs.foot}/bin/foot -e sh -c 'tmux a || tmux'";
       "$browser" = "qutebrowser";
       "$fileManager" = "dolphin";
       "$menu" = "wofi --show drun";
@@ -151,7 +152,7 @@ in
         # Audio
         "$superShift, a, exec, ${scriptsDir}/speaker_switch.sh"
         "$superShift, s, exec, ${scriptsDir}/spotify_wofi.sh"
-        "$superShift, r, exec, ${pkgs.ghostty}/bin/ghostty --title=rmpc-float -e rmpc"
+        "$superShift, r, exec, ${pkgs.foot}/bin/foot --title=rmpc-float -e rmpc"
         "$mainMod, r, exec, rmpc togglepause"
         "$superShift, p, exec, ${scriptsDir}/playlist_selection.sh"
         "$mainMod, p, exec, hyprpicker -a"

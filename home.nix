@@ -7,7 +7,8 @@
     ./modules/neovim.nix
     ./modules/git.nix
     ./modules/tmux.nix
-    ./modules/ghostty.nix
+    # ./modules/ghostty.nix
+    ./modules/foot.nix
     ./modules/hyprland.nix
     ./modules/ironbar.nix
     ./modules/opencode.nix
