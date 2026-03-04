@@ -45,6 +45,7 @@
       yazi
       keepassxc
       zapzap
+      codex
 
       # Uni
       eduvpn-client
