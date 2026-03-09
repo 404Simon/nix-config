@@ -3,6 +3,7 @@
 {
   home.packages =
     (with pkgs; [
+      sioyek
       vivaldi
       ungoogled-chromium
       kdePackages.dolphin

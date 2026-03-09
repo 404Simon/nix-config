@@ -14,7 +14,7 @@
 
       "x-scheme-handler/mailto" = "thunderbird.desktop";
 
-      "application/pdf" = "org.pwmt.zathura.desktop";
+      "application/pdf" = "sioyek.desktop";
 
       "image/png" = "feh.desktop";
       "image/jpeg" = "feh.desktop";

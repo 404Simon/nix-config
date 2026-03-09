@@ -20,6 +20,15 @@
           enabled = true;
         };
 
+        medical-mcp = {
+          type = "local";
+          command = [
+            "node"
+            "/home/simon/dev/medical-mcp/build/index.js"
+          ];
+          enabled = true;
+        };
+
         anki = {
           type = "remote";
           url = "http://127.0.0.1:3141/";

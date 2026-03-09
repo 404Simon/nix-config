@@ -58,6 +58,8 @@
       cargo = "https://crates.io/search?q={}";
       yt = "https://www.youtube.com/results?search_query={}";
       sc = "https://soundcloud.com/search?q={}";
+      gs = "https://scholar.google.com/scholar?q={}";
+      pm = "https://pubmed.ncbi.nlm.nih.gov/?term={}";
     };
 
     quickmarks = {

@@ -6,6 +6,7 @@
 
     config = {
       gpu-context = "wayland";
+      loop-file = "inf";
     };
   };
 
