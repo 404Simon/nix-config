@@ -56,7 +56,7 @@ in
       "$terminal" = "${pkgs.foot}/bin/foot -e sh -c 'tmux a || tmux'";
       "$browser" = "qutebrowser";
       "$fileManager" = "dolphin";
-      "$menu" = "wofi --show drun";
+      "$menu" = "sirula";
       "$mainMod" = "SUPER";
       "$superShift" = "SUPER_SHIFT";
 
@@ -243,11 +243,15 @@ in
     hyprshot
     hyprsunset
     wofi
+    sirula # launcher
     brightnessctl
     libnotify # provides notify-send
     playerctl
     networkmanager
   ];
+
+  xdg.configFile."sirula".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/resources/sirula";
 
   services.hypridle = {
     enable = true;
