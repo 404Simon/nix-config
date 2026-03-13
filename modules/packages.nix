@@ -58,6 +58,7 @@
       onlyoffice-desktopeditors
       anki
       zotero
+      xournalpp
 
       calcure
       newsboat
