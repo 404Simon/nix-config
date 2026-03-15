@@ -146,6 +146,7 @@ in
       shutdown = "pangolin down; systemctl poweroff";
       reboot = "pangolin down; systemctl reboot";
       gaming = "ssh xmg.server \"wakeonlan 88:d7:f6:7a:5d:eb\"";
+      dnd = "if [ \"$(makoctl mode)\" = \"do-not-disturb\" ]; then makoctl mode -s default; else makoctl mode -s do-not-disturb; fi";
     };
   };
 

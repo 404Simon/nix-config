@@ -96,6 +96,7 @@ in
       set -g status-right-length 150
       set -g status-right-style "fg=#f8f8f2,bg=#282a36"
       set -g status-right ""
+      set -ga status-right "#(${scriptsDir}/tmux-notification-status.sh) "
       set -ga status-right "#[fg=#f1fa8c,bg=#282a36] %a %d.%m. #[fg=#bd93f9,bg=#282a36] %H:%M "
 
       # Message and Command line
