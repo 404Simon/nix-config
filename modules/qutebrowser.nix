@@ -4,7 +4,21 @@
   programs.qutebrowser = {
     enable = true;
 
-    greasemonkey = builtins.map (
+    greasemonkey = [
+      (pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/afreakk/greasemonkeyscripts/master/youtube_sponsorblock.js";
+        sha256 = "sha256-nwNade1oHP+w5LGUPJSgAX1+nQZli4Rhe8FFUoF5mLE=";
+      })
+      (pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/iamfugui/youtube-adb/main/index.user.js";
+        sha256 = "sha256-2/nwJY+3vC1fs5bKTnPWpoG3QKFOpf9WIq0cSetrBOg=";
+      })
+      (pkgs.fetchurl {
+        url = "https://greasyfork.org/scripts/540190/code/youtube-shorts-blocker.user.js";
+        sha256 = "sha256-2maNEhbH5eFzqyQ9ts2jKQMfMOvP8DfzAfY/flILxqs=";
+      })
+    ]
+    ++ builtins.map (
       file:
       pkgs.runCommand file { } ''
         cp ${../resources/qutebrowser/greasemonkey + "/${file}"} $out
