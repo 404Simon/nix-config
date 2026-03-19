@@ -31,6 +31,7 @@
       fastfetch
       subfinder
       vesktop
+      fluffychat
       ncdu
       mise
       lazysql
