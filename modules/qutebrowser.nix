@@ -74,6 +74,7 @@
       sc = "https://soundcloud.com/search?q={}";
       gs = "https://scholar.google.com/scholar?q={}";
       pm = "https://pubmed.ncbi.nlm.nih.gov/?term={}";
+      klein = "https://www.kleinanzeigen.de/s-{}/k0";
     };
 
     quickmarks = {
@@ -84,6 +85,7 @@
       gem = "https://gemini.google.com/app";
       lm = "https://notebooklm.google.com/";
       sc = "https://soundcloud.com/discover";
+      klein = "https://www.kleinanzeigen.de";
     };
 
     keyBindings.normal = {

@@ -123,7 +123,7 @@ in
         "$mainMod, space, exec, $menu"
 
         "$mainMod, A, exec, w=$(hyprctl activeworkspace | head -n1 | grep -o 'ID [0-9]' | cut -d' ' -f2); if [ \"$w\" = \"1\" ]; then $browser; elif [ \"$w\" = \"2\" ]; then $terminal; elif [ \"$w\" = \"4\" ]; then vivaldi; elif [ \"$w\" = \"7\" ]; then thunderbird; elif [ \"$w\" = \"8\" ]; then spotify; elif [ \"$w\" = \"9\" ]; then vesktop; fi"
-        "$mainMod, J, exec, sioyek"
+        "$mainMod, J, exec, sioyek --new-window"
 
         # Window management
         "$mainMod, Q, killactive,"

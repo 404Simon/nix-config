@@ -101,6 +101,7 @@
 
             - Start with document structure (headings and organization)
             - **Always compile after creating/editing** using `typst compile <filename>.typ` to check for syntax errors
+            - When creating a document, use small write operations - write the document in chunks, big write operations will fail!
             - Fix any compilation errors before proceeding
             - Ensure mathematical notation is clear and properly formatted
             - Check for common LaTeX habits that don't apply to Typst

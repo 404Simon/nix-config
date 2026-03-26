@@ -44,6 +44,8 @@
       rustup # includes cargo
       php
       phpPackages.composer
+      bun
+      pnpm
       yazi
       keepassxc
       zapzap
