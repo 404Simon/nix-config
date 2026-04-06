@@ -8,6 +8,7 @@
       ungoogled-chromium
       kdePackages.dolphin
       imagemagick
+      kdePackages.gwenview
       rsync
       restic
       localsend
