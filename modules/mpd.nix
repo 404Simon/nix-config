@@ -35,6 +35,12 @@ in
       input {
         plugin "curl"
       }
+
+      # Volume normalization
+      replaygain "track"
+      replaygain_preamp "0"
+      replaygain_missing_preamp "-6"
+      replaygain_limit "yes"
     '';
   };
 
