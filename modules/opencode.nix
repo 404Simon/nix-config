@@ -1,13 +1,31 @@
-{ config, pkgs, ... }:
+{ config, pkgs-unstable, ... }:
+
+let
+  opencodeWrapped = pkgs-unstable.symlinkJoin {
+    name = "opencode-wrapped";
+    paths = [ pkgs-unstable.opencode ];
+    nativeBuildInputs = [ pkgs-unstable.makeWrapper ];
+    postBuild = ''
+      wrapProgram "$out/bin/opencode" \
+        --prefix LD_LIBRARY_PATH : "${
+          pkgs-unstable.lib.makeLibraryPath [ pkgs-unstable.stdenv.cc.cc.lib ]
+        }"
+    '';
+  };
+in
 
 {
+  xdg.configFile."opencode/skills".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.agent/skills";
+
   programs.opencode = {
     enable = true;
+    package = opencodeWrapped;
 
     settings = {
       theme = "tokyonight";
 
-      autoupdate = true;
+      autoupdate = false;
 
       mcp = {
         context7 = {
@@ -26,7 +44,7 @@
             "node"
             "/home/simon/dev/medical-mcp/build/index.js"
           ];
-          enabled = true;
+          enabled = false;
         };
 
         anki = {
