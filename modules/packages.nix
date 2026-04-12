@@ -8,7 +8,6 @@
       ungoogled-chromium
       kdePackages.dolphin
       imagemagick
-      kdePackages.gwenview
       rsync
       restic
       localsend
@@ -50,6 +49,7 @@
       yazi
       keepassxc
       zapzap
+      signal-desktop
       codex
 
       # Uni
@@ -71,6 +71,10 @@
 
       # Gaming
       moonlight-qt
+
+      # Photography
+      kdePackages.gwenview
+      rawtherapee
 
       # python with global packages
       (pkgs.python3.withPackages (
