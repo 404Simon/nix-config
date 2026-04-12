@@ -133,6 +133,7 @@ in
       blog = "~/dev/quartz/automation.sh";
       lyrics = "${scriptsDir}/lyric_search.py";
       plz = "${scriptsDir}/plz.sh";
+      song = "${scriptsDir}/song.sh";
 
       c = "calcure";
       n = "newsboat";
