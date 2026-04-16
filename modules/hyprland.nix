@@ -61,7 +61,7 @@ in
       "$superShift" = "SUPER_SHIFT";
 
       exec-once = [
-        "ironbar & nm-applet"
+        # "ironbar & nm-applet"
         "librepods --hide"
         "$browser"
         "$terminal"
@@ -127,7 +127,6 @@ in
 
         # Window management
         "$mainMod, Q, killactive,"
-        "$mainMod, M, exit,"
         "$superShift, F, togglefloating,"
         "$mainMod, F, fullscreen,"
         "$mainMod, N, layoutmsg, togglesplit"

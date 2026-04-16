@@ -50,7 +50,7 @@
       keepassxc
       zapzap
       signal-desktop
-      codex
+      obs-studio
 
       # Uni
       eduvpn-client
@@ -68,6 +68,8 @@
       newsboat
       socat
       sweethome3d.application
+
+      napari
 
       # Gaming
       moonlight-qt
@@ -87,5 +89,6 @@
       pangolin-cli
       librepods
       mixxx
+      codex
     ]);
 }

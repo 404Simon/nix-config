@@ -10,7 +10,7 @@
     # ./modules/ghostty.nix
     ./modules/foot.nix
     ./modules/hyprland.nix
-    ./modules/ironbar.nix
+    # ./modules/ironbar.nix
     ./modules/opencode.nix
     ./modules/mpd.nix
     ./modules/rmpc.nix
