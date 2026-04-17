@@ -47,7 +47,7 @@ local number_words = {
 	twelve = 12,
 }
 
-local function parse_interval(raw)
+function M.parse_interval(raw)
 	if not raw or raw == "" then
 		return 1
 	end
@@ -60,7 +60,7 @@ local function parse_interval(raw)
 	return number_words[string.lower(raw)] or 1
 end
 
-local function parse_event(line)
+function M.parse_event(line)
 	local title, raw_interval, day, month, start_time, end_time = line:match(
 		"^%[(.-)%s+every%s+([%w%-]+)%s+weeks?%s+starting%s+(%d%d)%.(%d%d)%.%s+from%s+(%d%d:%d%d)%s*%-%s*(%d%d:%d%d)%]$"
 	)
@@ -88,7 +88,7 @@ local function parse_event(line)
 
 	return {
 		title = vim.trim(title),
-		interval_weeks = parse_interval(raw_interval),
+		interval_weeks = M.parse_interval(raw_interval),
 		day = tonumber(day),
 		month = tonumber(month),
 		start_hour = tonumber(start_hour),
@@ -100,7 +100,7 @@ local function parse_event(line)
 	}
 end
 
-local function next_occurrence(event, now)
+function M.next_occurrence(event, now)
 	local year = tonumber(os.date("%Y", now))
 	local first = os.time({
 		year = year,
@@ -132,7 +132,7 @@ local function next_occurrence(event, now)
 	return first + (cycles * step)
 end
 
-local function format_days_until(timestamp, now)
+function M.format_days_until(timestamp, now)
 	local start_of_today = os.time({
 		year = tonumber(os.date("%Y", now)),
 		month = tonumber(os.date("%m", now)),
