@@ -5,13 +5,17 @@
 --- Write events in ~/Vorlesungen/TODO.md using these formats:
 ---
 ---   Recurring: [Title every X weeks starting DD.MM. from HH:MM - HH:MM]
+---              [Title every X weeks starting DD.MM.]
 ---              [Title every weeks starting DD.MM. from HH:MM - HH:MM]
+---              [Title every weeks starting DD.MM.]
 ---   Non-recurring: [Title on DD.MM. from HH:MM - HH:MM]
+---                  [Title on DD.MM.]
 ---
 --- Examples:
 ---   [Übung every 2 weeks starting 20.04. from 10:15 - 12:00]
 ---   [Vorlesung every weeks starting 15.04. from 14:15 - 15:45]
 ---   [Übung on 20.04. from 10:15 - 12:00]
+---   [Abgabe every week starting 13.04.]
 ---
 --- The plugin displays upcoming events as virtual text overlay showing
 --- the event title, days until, date, and time range.
@@ -73,9 +77,23 @@ function M.parse_event(line)
 	end
 
 	if not title then
-		title, day, month, start_time, end_time = line:match(
-			"^%[(.-)%s+on%s+(%d%d)%.(%d%d)%.%s+from%s+(%d%d:%d%d)%s*%-%s*(%d%d:%d%d)%]$"
-		)
+		title, raw_interval, day, month =
+			line:match("^%[(.-)%s+every%s+([%w%-]+)%s+weeks?%s+starting%s+(%d%d)%.(%d%d)%.%s*%]$")
+	end
+
+	if not title then
+		title, day, month = line:match("^%[(.-)%s+every%s+weeks?%s+starting%s+(%d%d)%.(%d%d)%.%s*%]$")
+		raw_interval = "1"
+	end
+
+	if not title then
+		title, day, month, start_time, end_time =
+			line:match("^%[(.-)%s+on%s+(%d%d)%.(%d%d)%.%s+from%s+(%d%d:%d%d)%s*%-%s*(%d%d:%d%d)%]$")
+		raw_interval = "0"
+	end
+
+	if not title then
+		title, day, month = line:match("^%[(.-)%s+on%s+(%d%d)%.(%d%d)%.%s*%]$")
 		raw_interval = "0"
 	end
 
@@ -83,18 +101,21 @@ function M.parse_event(line)
 		return nil
 	end
 
-	local start_hour, start_min = start_time:match("^(%d%d):(%d%d)$")
-	local end_hour, end_min = end_time:match("^(%d%d):(%d%d)$")
+	local start_hour, start_min, end_hour, end_min
+	if start_time and end_time then
+		start_hour, start_min = start_time:match("^(%d%d):(%d%d)$")
+		end_hour, end_min = end_time:match("^(%d%d):(%d%d)$")
+	end
 
 	return {
 		title = vim.trim(title),
 		interval_weeks = M.parse_interval(raw_interval),
 		day = tonumber(day),
 		month = tonumber(month),
-		start_hour = tonumber(start_hour),
-		start_min = tonumber(start_min),
-		end_hour = tonumber(end_hour),
-		end_min = tonumber(end_min),
+		start_hour = start_hour and tonumber(start_hour) or nil,
+		start_min = start_min and tonumber(start_min) or nil,
+		end_hour = end_hour and tonumber(end_hour) or nil,
+		end_min = end_min and tonumber(end_min) or nil,
 		start_time = start_time,
 		end_time = end_time,
 	}
@@ -106,8 +127,8 @@ function M.next_occurrence(event, now)
 		year = year,
 		month = event.month,
 		day = event.day,
-		hour = event.start_hour,
-		min = event.start_min,
+		hour = event.start_hour or 0,
+		min = event.start_min or 0,
 		sec = 0,
 	})
 
@@ -164,23 +185,28 @@ function M.format_days_until(timestamp, now)
 end
 
 local function compute_single_event_text(event, now)
-	local occurrence = next_occurrence(event, now)
+	local occurrence = M.next_occurrence(event, now)
 	if not occurrence then
 		return nil
 	end
 
 	local next_date = os.date("%d.%m.", occurrence)
-	local days_until = format_days_until(occurrence, now)
+	local days_until = M.format_days_until(occurrence, now)
 	local icon = event.interval_weeks > 0 and "󰺎" or "󰃮"
-	return string.format(
-		" %s %s %s (%s %s - %s) ",
-		icon,
-		event.title,
-		days_until,
-		next_date,
-		event.start_time,
-		event.end_time
-	)
+
+	if event.start_time and event.end_time then
+		return string.format(
+			" %s %s %s (%s %s - %s) ",
+			icon,
+			event.title,
+			days_until,
+			next_date,
+			event.start_time,
+			event.end_time
+		)
+	end
+
+	return string.format(" %s %s %s (%s) ", icon, event.title, days_until, next_date)
 end
 
 local function is_normal_mode()
@@ -208,7 +234,7 @@ local function update_display(bufnr)
 	local now = os.time()
 
 	for index, line in ipairs(lines) do
-		local event = parse_event(vim.trim(line))
+		local event = M.parse_event(vim.trim(line))
 		if event then
 			local text = compute_single_event_text(event, now)
 			if text then
