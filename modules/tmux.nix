@@ -28,10 +28,10 @@ in
 
       # Split windows
       unbind %
-      bind / split-window -h -c "#{pane_current_path}"
+      bind u split-window -h -c "#{pane_current_path}"
 
       unbind '"'
-      bind - split-window -v -c "#{pane_current_path}"
+      bind i split-window -v -c "#{pane_current_path}"
 
       # Reload config
       unbind r

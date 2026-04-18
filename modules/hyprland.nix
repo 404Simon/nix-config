@@ -220,7 +220,6 @@ in
         # Workspace assignments
         "workspace 1, class:^(zen)$"
         "workspace 1, class:^(org.qutebrowser.qutebrowser)$"
-        "workspace 2, class:^(com.mitchellh.ghostty)$, title:^(?!rmpc-float).*$"
         "workspace 4, class:^(Vivaldi-stable)$"
         "workspace 7, class:^(org.mozilla.Thunderbird)$"
         "workspace 8, class:^(Spotify)$"
