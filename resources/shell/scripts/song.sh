@@ -8,4 +8,4 @@ if [ -z "${selected_song:-}" ]; then
   exit 0
 fi
 
-rmpc add "$selected_song"
+rmpc add --position +0 "$selected_song"
