@@ -86,6 +86,7 @@
       lm = "https://notebooklm.google.com/";
       sc = "https://soundcloud.com/discover";
       klein = "https://www.kleinanzeigen.de";
+      rr = "https://app.researchrabbit.ai/search";
     };
 
     keyBindings.normal = {

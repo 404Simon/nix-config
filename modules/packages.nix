@@ -58,6 +58,7 @@
       texlive.combined.scheme-full
       pandoc
       typst
+      apostrophe
       obsidian
       onlyoffice-desktopeditors
       anki
@@ -90,5 +91,7 @@
       librepods
       mixxx
       codex
+      vscode
+      pi-coding-agent
     ]);
 }

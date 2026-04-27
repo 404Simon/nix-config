@@ -84,6 +84,8 @@ in
         paplay /usr/share/sounds/freedesktop/stereo/complete.oga
       }
 
+      timer() { (sleep "$1" && notify-send "Timer" "Time's up! ($1)" -u critical) &>/dev/null & disown; }
+
       work() {
         mpv_send_command '{ "command": ["set_property", "pause", false] }'
         timer ''${1:-25}m && \
