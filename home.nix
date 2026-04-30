@@ -19,6 +19,7 @@
     ./modules/xdg.nix
     ./modules/wallpaper-slideshow.nix
     ./modules/zathura.nix
+    ./modules/sioyek.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
