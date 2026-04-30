@@ -49,7 +49,6 @@ in
       # Popup bindings
       bind -r g popup -d '#{pane_current_path}' -E -w 90% -h 90% lazygit
       bind -r t popup -d '#{pane_current_path}' -E -w 90% -h 90% ${config.home.homeDirectory}/dev/tuidict/target/release/tuidict
-      bind -r o popup -d '#{pane_current_path}' -E -w 90% -h 90% opencode
       bind -r r popup -d '#{pane_current_path}' -E -w 90% -h 90% ${config.home.homeDirectory}/dev/rmpc/target/release/rmpc
 
       # Copy mode bindings
