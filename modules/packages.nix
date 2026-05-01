@@ -3,7 +3,7 @@
 {
   home.packages =
     (with pkgs; [
-      vivaldi
+      (vivaldi.override { proprietaryCodecs = true; })
       ungoogled-chromium
       kdePackages.dolphin
       imagemagick
