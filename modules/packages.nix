@@ -57,6 +57,7 @@
       texlive.combined.scheme-full
       pandoc
       typst
+      plantuml
       apostrophe
       obsidian
       onlyoffice-desktopeditors
