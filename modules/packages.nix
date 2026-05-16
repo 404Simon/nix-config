@@ -64,6 +64,7 @@
       anki
       zotero
       xournalpp
+      xlsx2csv
 
       calcure
       newsboat
