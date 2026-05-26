@@ -136,6 +136,7 @@ in
       lyrics = "${scriptsDir}/lyric_search.py";
       plz = "${scriptsDir}/plz.sh";
       song = "${scriptsDir}/song.sh";
+      jo = "cd /home/simon/dev/VesSkel";
 
       c = "calcure";
       n = "newsboat";

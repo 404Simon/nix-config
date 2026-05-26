@@ -29,7 +29,6 @@
       tldr
       fastfetch
       subfinder
-      vesktop
       fluffychat
       ncdu
       mise
@@ -50,6 +49,7 @@
       zapzap
       signal-desktop
       obs-studio
+      radicle-node
 
       # Uni
       eduvpn-client
@@ -94,5 +94,7 @@
       codex
       vscode
       pi-coding-agent
+      tabiew
+      tex-fmt
     ]);
 }
