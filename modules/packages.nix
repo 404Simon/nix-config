@@ -17,6 +17,7 @@
       exiftool
       zip
       unzip
+      unrar-free
       ripgrep
       fd
       fwupd
