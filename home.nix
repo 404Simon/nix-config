@@ -18,6 +18,7 @@
     ./modules/qutebrowser.nix
     ./modules/xdg.nix
     ./modules/wallpaper-slideshow.nix
+    ./modules/simple-notifier.nix
     ./modules/zathura.nix
     ./modules/sioyek.nix
   ];
