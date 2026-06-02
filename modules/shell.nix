@@ -110,6 +110,9 @@ in
 
       # Typst completions
       eval "$(typst completions zsh)"
+
+      # Vesskel completions
+      eval "$(vesskel completions zsh)"
     '';
 
     shellAliases = {
