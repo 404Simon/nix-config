@@ -75,6 +75,7 @@
       gs = "https://scholar.google.com/scholar?q={}";
       pm = "https://pubmed.ncbi.nlm.nih.gov/?term={}";
       klein = "https://www.kleinanzeigen.de/s-{}/k0";
+      geiz = "https://geizhals.de/?fs={}&hloc=de";
     };
 
     quickmarks = {
@@ -87,6 +88,7 @@
       sc = "https://soundcloud.com/discover";
       klein = "https://www.kleinanzeigen.de";
       rr = "https://app.researchrabbit.ai/search";
+      geiz = "https://geizhals.de";
     };
 
     keyBindings.normal = {
