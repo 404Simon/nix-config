@@ -105,6 +105,13 @@ in
       }
       compdef '_files -g "*.(pdf|PDF|epub)"' op
 
+      slug() {
+        local s="$(wl-paste)"
+        s="$(echo "$s" | sed 's/[^a-zA-Z0-9_-]/_/g;s/__*/_/g;s/^_//;s/_$//')"
+        echo -n "$s" | wl-copy
+        echo "$s"
+      }
+
       # Laravel completions
       eval $(laravel completion)
 

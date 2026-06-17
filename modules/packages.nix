@@ -6,6 +6,7 @@
       (vivaldi.override { proprietaryCodecs = true; })
       ungoogled-chromium
       kdePackages.dolphin
+      kdePackages.kdenlive
       imagemagick
       rsync
       restic
