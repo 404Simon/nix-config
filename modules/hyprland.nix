@@ -363,7 +363,7 @@ in
   };
 
   services.hyprsunset = {
-    enable = true;
+    enable = false;
     settings = {
       profile = [
         {

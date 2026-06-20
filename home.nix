@@ -11,6 +11,7 @@
     ./modules/foot.nix
     ./modules/hyprland.nix
     # ./modules/ironbar.nix
+    ./modules/rumdl.nix
     ./modules/opencode.nix
     ./modules/mpd.nix
     ./modules/rmpc.nix
