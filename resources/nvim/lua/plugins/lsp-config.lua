@@ -42,11 +42,10 @@ return {
 				"marksman",
 				"phpactor",
 				"pyrefly",
+				"ruff",
 				"stimulus_ls",
 				"stylua",
 				"pint",
-				"black",
-				"isort",
 				-- jdtls is configured separately
 			}
 
@@ -64,6 +63,21 @@ return {
 							},
 						},
 					},
+				},
+				pyrefly = {
+					on_attach = function(client)
+						client.server_capabilities.documentFormattingProvider = false
+						client.server_capabilities.documentRangeFormattingProvider = false
+					end,
+				},
+				ruff = {
+					on_attach = function(client)
+						client.server_capabilities.definitionProvider = false
+						client.server_capabilities.referencesProvider = false
+						client.server_capabilities.documentSymbolProvider = false
+						client.server_capabilities.completionProvider = false
+						client.server_capabilities.hoverProvider = false
+					end,
 				},
 			}
 
@@ -162,7 +176,6 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				go = { "gofmt", "goimports" },
-				python = { "isort", "black" },
 				php = { "pint" },
 				blade = { "blade-formatter" },
 				tex = { "tex-fmt" },

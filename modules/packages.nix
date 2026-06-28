@@ -52,7 +52,6 @@
       signal-desktop
       obs-studio
       radicle-node
-      jellyfin-desktop
 
       # Uni
       eduvpn-client
@@ -99,5 +98,6 @@
       pi-coding-agent
       tabiew
       tex-fmt
+      just
     ]);
 }

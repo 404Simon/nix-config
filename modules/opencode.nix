@@ -16,7 +16,7 @@ in
 
 {
   xdg.configFile."opencode/skills".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.agent/skills";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/resources/opencode/skills";
 
   programs.opencode = {
     enable = true;
@@ -50,6 +50,15 @@ in
         anki = {
           type = "remote";
           url = "http://127.0.0.1:3141/";
+          enabled = true;
+        };
+
+        zotero-mcp = {
+          type = "local";
+          command = [
+            "/home/simon/dev/zotero-mcp/.venv/bin/python"
+            "/home/simon/dev/zotero-mcp/src/main.py"
+          ];
           enabled = true;
         };
       };
