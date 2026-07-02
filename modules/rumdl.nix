@@ -5,6 +5,6 @@
 
   xdg.configFile."rumdl/rumdl.toml".text = ''
     [global]
-    disable = ["MD013"]
+    disable = ["MD013", "MD025"]
   '';
 }

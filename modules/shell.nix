@@ -123,9 +123,9 @@ in
     '';
 
     shellAliases = {
-      vim = "nvim";
       t = "tmux a || tmux";
       y = "yazi";
+      g = "lazygit";
       fzf = "fzf --tmux 80%,80%";
       ls = "eza --color=always --icons=always";
 
