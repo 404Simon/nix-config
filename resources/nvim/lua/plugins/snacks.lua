@@ -112,5 +112,19 @@ return {
 			end,
 			desc = "Search Grep",
 		},
+		{
+			"<leader>ss",
+			function()
+				Snacks.picker.lsp_symbols()
+			end,
+			desc = "Document Symbols",
+		},
+		{
+			"<leader>sS",
+			function()
+				Snacks.picker.lsp_workspace_symbols()
+			end,
+			desc = "Workspace Symbols",
+		},
 	},
 }

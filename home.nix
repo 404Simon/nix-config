@@ -22,6 +22,7 @@
     ./modules/simple-notifier.nix
     ./modules/zathura.nix
     ./modules/sioyek.nix
+    ./modules/webapps.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

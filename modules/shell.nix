@@ -128,6 +128,7 @@ in
       g = "lazygit";
       fzf = "fzf --tmux 80%,80%";
       ls = "eza --color=always --icons=always";
+      pp = "pnpm";
 
       artisan = "php artisan";
       pint = "./vendor/bin/pint";
