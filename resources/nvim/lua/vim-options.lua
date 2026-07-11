@@ -72,7 +72,35 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+vim.keymap.set("n", "<leader>q", function()
+	local qf_win = vim.fn.getqflist({ winid = 0 }).winid
+	if qf_win ~= 0 then
+		vim.cmd("cclose")
+	elseif #vim.fn.getqflist() > 0 then
+		vim.cmd("copen")
+	else
+		vim.notify("Quickfix list is empty", vim.log.levels.INFO)
+	end
+end, { desc = "Toggle quickfix list" })
+
+-- Quickfix list navigation
+local function qf_next()
+	pcall(vim.cmd.cnext)
+end
+local function qf_prev()
+	pcall(vim.cmd.cprev)
+end
+vim.keymap.set("n", "<C-n>", qf_next, { desc = "Next quickfix item" })
+vim.keymap.set("n", "<C-p>", qf_prev, { desc = "Previous quickfix item" })
+
+-- Override default qf buffer mappings (<C-n> → :cnewer, <C-p> → :colder)
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "qf",
+	callback = function()
+		vim.keymap.set("n", "<C-n>", qf_next, { buffer = true, desc = "Next quickfix item" })
+		vim.keymap.set("n", "<C-p>", qf_prev, { buffer = true, desc = "Previous quickfix item" })
+	end,
+})
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })

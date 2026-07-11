@@ -63,6 +63,7 @@
       apostrophe
       obsidian
       onlyoffice-desktopeditors
+      libreoffice
       anki
       zotero
       xournalpp

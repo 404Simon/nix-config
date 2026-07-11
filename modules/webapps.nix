@@ -31,5 +31,13 @@ in
       name = "Immich";
       url = "https://immich.404simon.de/photos";
     })
+    (mkWebApp {
+      name = "Paperless";
+      url = "https://paperless.404simon.de";
+    })
+    (mkWebApp {
+      name = "Campo";
+      url = "https://www.campo.fau.de";
+    })
   ];
 }
