@@ -124,6 +124,7 @@ in
 
         "$mainMod, A, exec, w=$(hyprctl activeworkspace | head -n1 | grep -o 'ID [0-9]' | cut -d' ' -f2); if [ \"$w\" = \"1\" ]; then $browser; elif [ \"$w\" = \"2\" ]; then $terminal; elif [ \"$w\" = \"4\" ]; then vivaldi; elif [ \"$w\" = \"7\" ]; then thunderbird; elif [ \"$w\" = \"8\" ]; then spotify; elif [ \"$w\" = \"9\" ]; then vesktop; fi"
         "$mainMod, J, exec, sioyek --new-window"
+        "$mainMod, k, exec, keepassxc"
 
         # Window management
         "$mainMod, Q, killactive,"
@@ -151,6 +152,7 @@ in
 
         # Audio
         "$superShift, a, exec, ${scriptsDir}/speaker_switch.sh"
+        "$mainMod, s, exec, ${scriptsDir}/song_picker.sh"
         "$superShift, s, exec, ${scriptsDir}/spotify_wofi.sh"
         "$superShift, r, exec, ${pkgs.foot}/bin/foot --title=rmpc-float -e rmpc"
         "$mainMod, r, exec, rmpc togglepause"

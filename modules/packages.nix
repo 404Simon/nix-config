@@ -82,6 +82,7 @@
       # Photography
       kdePackages.gwenview
       rawtherapee
+      inkscape
 
       # python with global packages
       (pkgs.python3.withPackages (

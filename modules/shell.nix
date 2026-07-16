@@ -129,6 +129,7 @@ in
       fzf = "fzf --tmux 80%,80%";
       ls = "eza --color=always --icons=always";
       pp = "pnpm";
+      mm = "MUSICMATCH_DB_PATH=/home/simon/dev/musicmatch/music_vectors.db /home/simon/dev/musicmatch/.venv/bin/musicmatch";
 
       artisan = "php artisan";
       pint = "./vendor/bin/pint";
@@ -163,6 +164,7 @@ in
       gaming = "ssh xmg.server \"wakeonlan 88:d7:f6:7a:5d:eb\"";
       dnd = "if [ \"$(makoctl mode)\" = \"do-not-disturb\" ]; then makoctl mode -s default; else makoctl mode -s do-not-disturb; fi";
       luft = "${scriptsDir}/airpods.sh";
+      bib = "hyprctl keyword monitor DP-2,2560x1440@74.99,0x0,1";
     };
   };
 
