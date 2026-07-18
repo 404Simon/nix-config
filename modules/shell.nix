@@ -112,6 +112,18 @@ in
         echo "$s"
       }
 
+      function anki() {
+          if ! pgrep anki > /dev/null; then
+              hyprctl dispatch exec "[workspace 8] anki"
+          fi
+          for i in $(seq 1 30); do
+              ss -tln 2>/dev/null | grep -q :3141 && break
+              echo "waiting for Anki MCP server..."
+              sleep 1
+          done
+          opencode --agent anki "$@"
+      }
+
       # Laravel completions
       eval $(laravel completion)
 
@@ -129,8 +141,7 @@ in
       fzf = "fzf --tmux 80%,80%";
       ls = "eza --color=always --icons=always";
       pp = "pnpm";
-      mm = "MUSICMATCH_DB_PATH=/home/simon/dev/musicmatch/music_vectors.db /home/simon/dev/musicmatch/.venv/bin/musicmatch";
-
+      mm = "/home/simon/dev/musicmatch/.venv/bin/musicmatch";
       artisan = "php artisan";
       pint = "./vendor/bin/pint";
       stan = "./vendor/bin/phpstan";

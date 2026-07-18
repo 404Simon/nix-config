@@ -97,7 +97,6 @@
       mixxx
       codex
       vscode
-      pi-coding-agent
       tabiew
       tex-fmt
       just

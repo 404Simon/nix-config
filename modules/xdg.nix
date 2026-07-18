@@ -23,6 +23,7 @@
 
       "video/mp4" = "mpv.desktop";
       "video/x-matroska" = "mpv.desktop";
+      "audio/mpeg" = "mpv.desktop";
 
       "text/plain" = "nvim.desktop";
     };

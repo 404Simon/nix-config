@@ -39,5 +39,13 @@ in
       name = "Campo";
       url = "https://www.campo.fau.de";
     })
+    (mkWebApp {
+      name = "Overleaf";
+      url = "https://www.overleaf.com/project/6a58d6e46c66edeec9d89320";
+    })
+    (mkWebApp {
+      name = "Geogebra";
+      url = "https://www.geogebra.org/classic?lang=en";
+    })
   ];
 }
