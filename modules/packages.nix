@@ -9,6 +9,7 @@
       kdePackages.kdenlive
       imagemagick
       rsync
+      croc
       restic
       localsend
       pdftk

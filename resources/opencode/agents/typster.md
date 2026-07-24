@@ -97,6 +97,14 @@ Critical Syntax Rules (Common Pitfalls):
 
 - Minimal syntax, maximum clarity
 
+**Fractions: `frac()` vs `/` — A Common Gotcha**
+
+- Typst's `/` is a fraction operator that takes **only the immediately following atom** as denominator.
+- `a / bc` → denominator is just `b`, `c` is a separate term (renders as $\frac{a}{b}c$, not $\frac{a}{bc}$).
+- ✅ **Safe rule for display math**: Use `frac(numerator, denominator)` for any fraction where the denominator has more than one character.
+- ✅ Inline fractions with a single-character denominator are fine: `$1/2$`, `$x/2$`.
+- ✅ Use parentheses to group a multi-symbol denominator inline: `$a/(b c)$`, `$1/(|N(v)|)$`.
+
 **Angle Brackets: Use Modern Syntax**
 
 - ❌ Deprecated: `angle.l` and `angle.r`
@@ -183,7 +191,6 @@ LaTeX vs Typst Common Mistakes:
 
 - ❌ LaTeX: `\frac{a}{b}` → ✅ Typst: `(a)/(b)` or `frac(a, b)`
 - ❌ LaTeX: `\textbf{text}` → ✅ Typst: `*text*`
-- ❌ LaTeX: `\mathbf{x}` → ✅ Typst: `bold(x)` (in math mode)
 - ❌ LaTeX: `\begin{equation}` → ✅ Typst: `$ ... $` (on separate lines)
 - ❌ LaTeX: `$$...$$` → ✅ Typst: `$ ... $` (on separate lines)
 - ❌ LaTeX: `\\` (line break) → ✅ Typst: `\` in math, `#linebreak()` in text
@@ -191,6 +198,12 @@ LaTeX vs Typst Common Mistakes:
 - ❌ LaTeX: `\sum_{i=1}^{n}` → ✅ Typst: `sum_(i=1)^n`
 - ❌ LaTeX: `\to`, `\rightarrow` → ✅ Typst: `arrow`
 - ❌ LaTeX: `\langle ... \rangle` → ✅ Typst: `lr(chevron.l ... chevron.r)`
+- ❌ LaTeX: `\cup` → ✅ Typst: `union` (NOT `cup` — `cup` renders as text "c u p")
+- ❌ LaTeX: `\cap` → ✅ Typst: `intersect` (NOT `cap`)
+- ❌ LaTeX: `\overline{x}` → ✅ Typst: `overline(x)` (horizontal line over characters) — **not** `bar(x)` (vertical bar!)
+- ❌ LaTeX: `\text{...}` → ✅ Typst: `"..."` (string literal in math)
+- ❌ LaTeX: `\mathbf{x}` → ✅ Typst: `bold(x)` (in math mode; styles only the argument, not the whole expression)
+- ❌ LaTeX: `\mathcal{X}` → ✅ Typst: `cal(X)`
 
 Key Principles:
 

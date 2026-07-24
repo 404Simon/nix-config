@@ -32,6 +32,10 @@ in
       url = "https://immich.404simon.de/photos";
     })
     (mkWebApp {
+      name = "OpenCloud";
+      url = "https://cloud.5imon.de";
+    })
+    (mkWebApp {
       name = "Paperless";
       url = "https://paperless.404simon.de";
     })
