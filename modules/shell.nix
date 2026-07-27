@@ -61,43 +61,6 @@ in
           curl -s "wttr.in/$location" | sed '1d;$d;$d'
       }
 
-      # Pomodoro functions
-      icon=~/Pictures/pumpkin.png
-      MPV_IPC_SOCKET="/tmp/mpv-socket"
-
-      mpv_send_command() {
-        local command_json="$1"
-        if command -v socat >/dev/null; then
-          if pgrep mpv >/dev/null; then
-            if [[ -S "$MPV_IPC_SOCKET" ]]; then
-              echo "$command_json" | socat - "$MPV_IPC_SOCKET" 2>/dev/null
-            fi
-          fi
-        else
-          echo "Error: 'socat' not found. Cannot control mpv via IPC." >&2
-        fi
-      }
-
-      notify() {
-        notify-send -i "$icon" "$1" "$2"
-        paplay /usr/share/sounds/freedesktop/stereo/complete.oga
-        paplay /usr/share/sounds/freedesktop/stereo/complete.oga
-      }
-
-      timer() { (sleep "$1" && notify-send "Timer" "Time's up! ($1)" -u critical) &>/dev/null & disown; }
-
-      work() {
-        mpv_send_command '{ "command": ["set_property", "pause", false] }'
-        timer ''${1:-25}m && \
-        mpv_send_command '{ "command": ["set_property", "pause", true] }'
-        notify "Work Timer is up! Take a Break 😊" "Santa 🎅🏼"
-      }
-
-      chill() {
-        timer ''${1:-7}m && \
-        notify "Break is over! Get back to work 😬" "Santa 🎅🏼"
-      }
-
       # Open function with completion
       op() {
           xdg-open "$@" >/dev/null 2>&1 &
@@ -176,6 +139,8 @@ in
       dnd = "if [ \"$(makoctl mode)\" = \"do-not-disturb\" ]; then makoctl mode -s default; else makoctl mode -s do-not-disturb; fi";
       luft = "${scriptsDir}/airpods.sh";
       bib = "hyprctl keyword monitor DP-2,2560x1440@74.99,0x0,1";
+
+      timer = "${scriptsDir}/timer.sh";
     };
   };
 
