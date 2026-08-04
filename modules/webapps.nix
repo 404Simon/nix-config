@@ -51,5 +51,13 @@ in
       name = "Geogebra";
       url = "https://www.geogebra.org/classic?lang=en";
     })
+    (mkWebApp {
+      name = "Chess";
+      url = "https://www.chess.com/play/online";
+    })
+    (mkWebApp {
+      name = "Splitify";
+      url = "https://splitify.404simon.de/groups";
+    })
   ];
 }

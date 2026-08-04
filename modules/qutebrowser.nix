@@ -76,6 +76,7 @@
       pm = "https://pubmed.ncbi.nlm.nih.gov/?term={}";
       klein = "https://www.kleinanzeigen.de/s-{}/k0";
       geiz = "https://geizhals.de/?fs={}&hloc=de";
+      tr = "https://translate.google.com/?sl=auto&tl=de&text={}&op=translate";
     };
 
     quickmarks = {
@@ -89,6 +90,7 @@
       klein = "https://www.kleinanzeigen.de";
       rr = "https://app.researchrabbit.ai/search";
       geiz = "https://geizhals.de";
+      tr = "https://translate.google.com/?sl=auto&tl=de";
     };
 
     keyBindings.normal = {

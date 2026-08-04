@@ -46,3 +46,19 @@ vim.keymap.set("n", "<leader>fw", function()
 	local cmd = string.format("vimgrep /[^\\x00-\\x7FäöüßÄÖÜ]/ **/*.%s", text_extensions)
 	search_and_open_qf(cmd)
 end, { desc = "Find non-ASCII in workspace text files" })
+
+vim.keymap.set("n", "<leader>tb", function()
+	local word = vim.fn.expand("<cword>")
+	local replacements = {
+		True = "False",
+		False = "True",
+		["true"] = "false",
+		["false"] = "true",
+	}
+	local new_word = replacements[word]
+	if not new_word then
+		vim.notify(string.format("Not a boolean: %q", word), vim.log.levels.WARN)
+		return
+	end
+	vim.cmd.normal({ "ciw" .. new_word, bang = true })
+end, { desc = "Toggle boolean under cursor (True/False)" })

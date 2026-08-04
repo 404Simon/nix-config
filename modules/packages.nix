@@ -75,8 +75,6 @@
       socat
       sweethome3d.application
 
-      napari
-
       # Gaming
       moonlight-qt
 

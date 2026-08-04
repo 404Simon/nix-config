@@ -123,6 +123,7 @@ in
       plz = "${scriptsDir}/plz.sh";
       song = "${scriptsDir}/song.sh";
       jo = "cd /home/simon/dev/VesSkel";
+      napari = "~/dev/VesSkel/.venv/bin/napari";
 
       c = "calcure";
       n = "newsboat";
