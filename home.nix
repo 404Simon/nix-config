@@ -20,6 +20,7 @@
     ./modules/xdg.nix
     ./modules/wallpaper-slideshow.nix
     ./modules/simple-notifier.nix
+    ./modules/syncthing.nix
     ./modules/zathura.nix
     ./modules/sioyek.nix
     ./modules/webapps.nix

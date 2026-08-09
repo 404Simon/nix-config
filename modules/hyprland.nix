@@ -396,7 +396,6 @@ in
   };
 
   services.cliphist.enable = true;
-  services.syncthing.enable = true;
   services.mako = {
     settings.default-timeout = 5000;
     enable = true;
