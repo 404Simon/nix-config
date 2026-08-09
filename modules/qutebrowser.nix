@@ -77,6 +77,7 @@
       klein = "https://www.kleinanzeigen.de/s-{}/k0";
       geiz = "https://geizhals.de/?fs={}&hloc=de";
       tr = "https://translate.google.com/?sl=auto&tl=de&text={}&op=translate";
+      mygh = "https://github.com/404Simon/{}";
     };
 
     quickmarks = {

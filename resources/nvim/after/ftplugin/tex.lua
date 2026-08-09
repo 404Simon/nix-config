@@ -19,5 +19,12 @@ vim.keymap.set("n", "<leader>p", function()
 			return
 		end
 	end
-	vim.notify("No Makefile found in " .. dir .. " or parent directory", vim.log.levels.WARN)
-end, { buffer = 0, desc = "Run make (compile LaTeX)" })
+	local file = vim.fn.expand("%:p")
+	vim.system({ "latexmk", "-pdf", file }, function(obj)
+		if obj.code ~= 0 then
+			vim.schedule(function()
+				vim.notify("latexmk failed: " .. obj.stderr, vim.log.levels.ERROR)
+			end)
+		end
+	end)
+end, { buffer = 0, desc = "Run make or latexmk (compile LaTeX)" })

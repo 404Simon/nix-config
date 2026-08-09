@@ -9,8 +9,13 @@ if ! bluetoothctl show | grep -q "Powered: yes"; then
 fi
 
 if bluetoothctl info "$AIRPODS_MAC" | grep -q "Connected: yes"; then
-    bluetoothctl disconnect "$AIRPODS_MAC"
-    notify-send -t 2000 "AirPods" "Disconnected"
+    if pactl list cards | grep -A 100 "$CARD" | grep -q "Active Profile: a2dp-sink"; then
+        bluetoothctl disconnect "$AIRPODS_MAC"
+        notify-send -t 2000 "AirPods" "Disconnected"
+    else
+        pactl set-card-profile "$CARD" a2dp-sink
+        notify-send -t 2000 "AirPods" "Set to AAC"
+    fi
 else
     bluetoothctl connect "$AIRPODS_MAC" >/dev/null 2>&1
     sleep 3
