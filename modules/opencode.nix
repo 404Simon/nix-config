@@ -1,26 +1,12 @@
 { config, pkgs-unstable, ... }:
 
-let
-  opencodeWrapped = pkgs-unstable.symlinkJoin {
-    name = "opencode-wrapped";
-    paths = [ pkgs-unstable.opencode ];
-    nativeBuildInputs = [ pkgs-unstable.makeWrapper ];
-    postBuild = ''
-      wrapProgram "$out/bin/opencode" \
-        --prefix LD_LIBRARY_PATH : "${
-          pkgs-unstable.lib.makeLibraryPath [ pkgs-unstable.stdenv.cc.cc.lib ]
-        }"
-    '';
-  };
-in
-
 {
   xdg.configFile."opencode/skills".source =
     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/resources/opencode/skills";
 
   programs.opencode = {
     enable = true;
-    package = opencodeWrapped;
+    package = pkgs-unstable.opencode;
 
     settings = {
       theme = "tokyonight";
@@ -60,6 +46,15 @@ in
             "/home/simon/dev/zotero-mcp/src/main.py"
           ];
           enabled = true;
+        };
+        nixos = {
+          type = "local";
+          command = [
+            "nix"
+            "run"
+            "github:utensils/mcp-nixos"
+            "--"
+          ];
         };
       };
 
