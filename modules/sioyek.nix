@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   copy-text-script = pkgs.writeShellScript "sioyek-copy-text" ''

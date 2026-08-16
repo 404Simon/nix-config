@@ -10,7 +10,6 @@
     # ./modules/ghostty.nix
     ./modules/foot.nix
     ./modules/hyprland.nix
-    # ./modules/ironbar.nix
     ./modules/rumdl.nix
     ./modules/opencode.nix
     ./modules/mpd.nix
@@ -21,7 +20,6 @@
     ./modules/wallpaper-slideshow.nix
     ./modules/simple-notifier.nix
     ./modules/syncthing.nix
-    ./modules/zathura.nix
     ./modules/sioyek.nix
     ./modules/webapps.nix
   ];

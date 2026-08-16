@@ -54,6 +54,8 @@
       obs-studio
       radicle-node
 
+      chess-tui
+
       # Uni
       eduvpn-client
       networkmanager-openvpn

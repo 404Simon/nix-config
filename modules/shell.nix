@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 let
   wallpaperConfig = import ./wallpaper-config.nix;
@@ -101,42 +101,29 @@ in
       t = "tmux a || tmux";
       y = "yazi";
       g = "lazygit";
-      fzf = "fzf --tmux 80%,80%";
       ls = "eza --color=always --icons=always";
       pp = "pnpm";
       mm = "/home/simon/dev/musicmatch/.venv/bin/musicmatch";
       artisan = "php artisan";
       pint = "./vendor/bin/pint";
-      stan = "./vendor/bin/phpstan";
-      pest = "./vendor/bin/pest";
-      rector = "./vendor/bin/rector";
-      sail = "./vendor/bin/sail";
-      db = "lazysql \"file:database/database.sqlite?loc=auto\"";
 
       dev = "eval \"$(${scriptsDir}/projectnavigator.sh)\"";
       v = "eval \"$(${scriptsDir}/vorlesungsnavigator.sh)\"";
       m = "eval \"$(${scriptsDir}/musicnavigator.sh)\"";
       o = "cd \"$OBSIDIAN_VAULT\" && nvim";
 
-      blog = "~/dev/quartz/automation.sh";
       lyrics = "${scriptsDir}/lyric_search.py";
       plz = "${scriptsDir}/plz.sh";
-      song = "${scriptsDir}/song.sh";
       jo = "cd /home/simon/dev/VesSkel";
       napari = "~/dev/VesSkel/.venv/bin/napari";
-
-      c = "calcure";
-      n = "newsboat";
       r = "rmpc";
 
       suspend = "systemctl suspend";
       open = "xdg-open";
       todo = "vim ~/Vorlesungen/TODO.md";
-      b = "bg && disown";
       winfo = "WALLPAPER_DIR=\"$WALLPAPER_DIR\" WALLPAPER_HISTORY_LOG=\"$WALLPAPER_HISTORY_LOG\" /home/simon/dev/wallpaper_slideshow/target/release/wallpaper-info";
       shutdown = "pangolin down; systemctl poweroff";
       reboot = "pangolin down; systemctl reboot";
-      gaming = "ssh xmg.server \"wakeonlan 88:d7:f6:7a:5d:eb\"";
       dnd = "if [ \"$(makoctl mode)\" = \"do-not-disturb\" ]; then makoctl mode -s default; else makoctl mode -s do-not-disturb; fi";
       luft = "${scriptsDir}/airpods.sh";
       bib = "hyprctl keyword monitor DP-2,2560x1440@74.99,0x0,1";

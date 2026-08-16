@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 let
   wallpaperConfig = import ./wallpaper-config.nix;
