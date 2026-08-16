@@ -1,18 +1,28 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixvim, typst-preview, ... }:
 
 {
-  programs.neovim = {
+  imports = [
+    nixvim.homeModules.nixvim
+  ];
+
+  programs.nixvim = {
     enable = true;
     defaultEditor = true;
-    viAlias = true;
     vimAlias = true;
+    viAlias = true;
+
+    imports = [
+      ../nixvim
+    ];
+
+    # typst-preview.nvim from the local dev checkout (native webview branch).
+    # NOTE: machine-specific input; the future NixOS repo should use the
+    # released plugin or a pinned fetch instead.
+    extraPlugins = [
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "typst-preview.nvim";
+        src = typst-preview;
+      })
+    ];
   };
-
-  # just symlink for now
-  xdg.configFile."nvim".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/resources/nvim";
-
-  home.packages = with pkgs; [
-    luajit
-  ];
 }

@@ -9,6 +9,15 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixvim.url = "github:nix-community/nixvim/nixos-25.11";
+
+    # Local dev checkout of typst-preview.nvim (native webview branch).
+    # Machine-specific: adjust for the NixOS PC or use the released plugin.
+    typst-preview = {
+      url = "path:/home/simon/dev/typst-preview.nvim";
+      flake = false;
+    };
   };
 
   outputs =
@@ -16,6 +25,8 @@
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
+      nixvim,
+      typst-preview,
       ...
     }:
     let
@@ -34,12 +45,16 @@
         inherit pkgs;
 
         extraSpecialArgs = {
-          inherit nixpkgs pkgs-unstable;
+          inherit nixpkgs pkgs-unstable nixvim typst-preview;
         };
 
         modules = [
           ./home.nix
         ];
       };
+
+      # Reusable nixvim module set for the future NixOS PC:
+      #   programs.nixvim.imports = [ (inputs.nix-config + "/nixvim") ];
+      nixvimModule = ./nixvim;
     };
 }
