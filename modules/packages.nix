@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, pkgs-unstable, pdf-extract, ... }:
 
 {
   home.packages =
@@ -14,6 +14,7 @@
       localsend
       pdftk
       pdfchain
+      pdf-extract
       diceware
       wakeonlan
       exiftool

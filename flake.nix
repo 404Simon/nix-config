@@ -18,6 +18,8 @@
       url = "path:/home/simon/dev/typst-preview.nvim";
       flake = false;
     };
+
+    pdf-extract-cli.url = "github:404Simon/pdf-extract-cli";
   };
 
   outputs =
@@ -27,6 +29,7 @@
       home-manager,
       nixvim,
       typst-preview,
+      pdf-extract-cli,
       ...
     }:
     let
@@ -46,6 +49,7 @@
 
         extraSpecialArgs = {
           inherit nixpkgs pkgs-unstable nixvim typst-preview;
+          pdf-extract = pdf-extract-cli.packages.${system}.default;
         };
 
         modules = [

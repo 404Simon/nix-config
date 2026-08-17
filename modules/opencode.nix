@@ -47,6 +47,14 @@
           ];
           enabled = true;
         };
+        wikicfp-mcp = {
+          type = "local";
+          command = [
+            "/home/simon/dev/wikicfp-mcp/.venv/bin/python"
+            "/home/simon/dev/wikicfp-mcp/src/main.py"
+          ];
+          enabled = true;
+        };
         nixos = {
           type = "local";
           command = [
