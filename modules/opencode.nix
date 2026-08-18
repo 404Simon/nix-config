@@ -42,16 +42,20 @@
         zotero-mcp = {
           type = "local";
           command = [
-            "/home/simon/dev/zotero-mcp/.venv/bin/python"
-            "/home/simon/dev/zotero-mcp/src/main.py"
+            "uvx"
+            "--from"
+            "git+https://github.com/404Simon/zotero-mcp"
+            "zotero-mcp"
           ];
           enabled = true;
         };
         wikicfp-mcp = {
           type = "local";
           command = [
-            "/home/simon/dev/wikicfp-mcp/.venv/bin/python"
-            "/home/simon/dev/wikicfp-mcp/src/main.py"
+            "uvx"
+            "--from"
+            "git+https://github.com/404Simon/wikicfp-mcp"
+            "wikicfp-mcp"
           ];
           enabled = true;
         };
