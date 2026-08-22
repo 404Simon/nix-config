@@ -129,6 +129,7 @@ in
       bib = "hyprctl keyword monitor DP-2,2560x1440@74.99,0x0,1";
 
       timer = "${scriptsDir}/timer.sh";
+      nh = "${scriptsDir}/notif_history.py";
     };
   };
 

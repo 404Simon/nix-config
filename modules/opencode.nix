@@ -59,6 +59,16 @@
           ];
           enabled = true;
         };
+        research-mcp = {
+          type = "local";
+          command = [
+            "uvx"
+            "--from"
+            "git+https://github.com/404Simon/research-mcp"
+            "research-mcp"
+          ];
+          enabled = true;
+        };
         nixos = {
           type = "local";
           command = [

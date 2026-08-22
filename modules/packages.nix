@@ -22,9 +22,9 @@
       unzip
       unrar-free
       ripgrep
+      dufs
       fd
       fwupd
-      yt-dlp
       poppler-utils
       ffmpeg-full
       feh
@@ -102,5 +102,6 @@
       tabiew
       tex-fmt
       just
+      yt-dlp
     ]);
 }

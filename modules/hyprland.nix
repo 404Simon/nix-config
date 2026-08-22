@@ -396,9 +396,10 @@ in
 
   services.cliphist.enable = true;
   services.mako = {
-    settings.default-timeout = 5000;
     enable = true;
     settings = {
+      default-timeout = 5000;
+      max-history = 1000;
       "mode=do-not-disturb" = {
         invisible = 1;
       };

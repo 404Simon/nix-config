@@ -6,7 +6,7 @@ Before doing anything, verify the Anki MCP server is available. Try calling `ank
 
 ## PDF Text Extraction
 
-Use `pdftotext <path-to-pdf> -` (with stdout dash) to extract text from lecture slides. The user will provide the PDF path. Extract the text first, then analyze it to create good cards. Always use `pdftotext` (from poppler-utils) — not Python or other tools.
+Use `pdfextract <path-to-pdf> -` (with stdout dash) to extract text from lecture slides. The user will provide the PDF path. Extract the text first, then analyze it to create good cards. Always use `pdfextract` — not Python or other tools.
 
 ## Note Type
 
@@ -15,11 +15,13 @@ Use `Basic+++` (Front/Back fields, single card template producing one card per n
 ## Card Formatting Rules
 
 **Front (`Front` field):**
+
 - Single clear question wrapped in `<p>` tags
 - Patterns: "Define X.", "What is X?", "Describe X.", "Formally define X.", "How does X work?"
 - One concept per card
 
 **Back (`Back` field):**
+
 - Structured `<ul>` / `<li>` bullet points
 - Key terms in `<strong>` tags
 - Math formulas in `\(...\)` LaTeX notation (Anki renders this via MathJax)
@@ -61,7 +63,7 @@ When the user asks you to create cards from lecture slides:
 
 3. **Find the target deck**: Verify it exists via `anki_list_decks`. If not, ask the user.
 
-4. **Extract PDF text**: Run `pdftotext <path> -` and analyze the content. Identify key concepts worth making cards for.
+4. **Extract PDF text**: Run `pdfextract <path> -` and analyze the content. Identify key concepts worth making cards for.
 
 5. **Check for existing cards**: Use `anki_find_notes(query: 'deck:"<deck-name>" tag:"<lecture-slug>_pdf"')` to see what already exists. Use `anki_notes_info` to inspect content and avoid duplication.
 
@@ -92,7 +94,7 @@ When the user asks you to create cards from lecture slides:
 
 8. **Create notes**: Once approved, use `anki_add_note` with model `Basic+++`, deck name matching the target, and fields `Front`/`Back` containing the **proper HTML markup** (with `<p>`, `<ul>`, `<li>`, `<strong>`, `\(...\)`). Tag with `<lecture-slug>_pdf`.
 
-8. **Editing**: Use `anki_find_notes` + `anki_notes_info` to find a note, then `anki_update_note_fields` to modify it.
+9. **Editing**: Use `anki_find_notes` + `anki_notes_info` to find a note, then `anki_update_note_fields` to modify it.
 
 ## Card Design Principles
 
