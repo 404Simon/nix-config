@@ -103,5 +103,6 @@
       tex-fmt
       just
       yt-dlp
+      gimp
     ]);
 }
