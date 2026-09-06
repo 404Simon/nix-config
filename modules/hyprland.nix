@@ -152,7 +152,7 @@ in
         # Audio
         "$superShift, a, exec, ${scriptsDir}/speaker_switch.sh"
         "$mainMod, s, exec, ${scriptsDir}/song_picker.sh"
-        "$superShift, s, exec, ${scriptsDir}/spotify_wofi.sh"
+        "$superShift, s, exec, ${pkgs.foot}/bin/foot --title=rmpc-snapshot -e ${scriptsDir}/rmpc_snapshot.sh"
         "$superShift, r, exec, ${pkgs.foot}/bin/foot --title=rmpc-float -e rmpc"
         "$mainMod, r, exec, rmpc togglepause"
         "$superShift, p, exec, ${scriptsDir}/playlist_selection.sh"
@@ -217,6 +217,11 @@ in
         "float, title:^(rmpc-float)$"
         "center, title:^(rmpc-float)$"
         "size 80% 80%, title:^(rmpc-float)$"
+
+        # rmpc snapshot picker
+        "float, title:^(rmpc-snapshot)$"
+        "center, title:^(rmpc-snapshot)$"
+        "size 70% 80%, title:^(rmpc-snapshot)$"
 
         # Workspace assignments
         "workspace 1, class:^(zen)$"

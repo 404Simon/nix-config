@@ -52,8 +52,10 @@
       keepassxc
       zapzap
       signal-desktop
+      vesktop
       obs-studio
       radicle-node
+      wl-clipboard-rs
 
       chess-tui
 
