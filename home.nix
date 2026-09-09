@@ -13,6 +13,7 @@
     ./modules/rumdl.nix
     ./modules/opencode.nix
     ./modules/mpd.nix
+    ./modules/emoji-picker.nix
     ./modules/rmpc.nix
     ./modules/mpv.nix
     ./modules/qutebrowser.nix

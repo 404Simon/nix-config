@@ -75,6 +75,68 @@ in
         echo "$s"
       }
 
+      function dicepass() {
+        local n="''${1:-5}"
+        if [[ "$n" == "-h" || "$n" == "--help" ]]; then
+          echo "usage: dicepass [num-words] (default: 5)"
+          echo "generates a password like Random5Words!Fun and copies it to the clipboard"
+          return 0
+        fi
+        if ! [[ "$n" =~ ^[0-9]+$ ]] || (( n < 1 )); then
+          echo "dicepass: num-words must be a positive integer" >&2
+          return 1
+        fi
+        if ! command -v diceware >/dev/null; then
+          echo "dicepass: diceware not found" >&2
+          return 1
+        fi
+        local base
+        base=$(diceware -n "$n" -d " " 2>/dev/null) || return 1
+        local -a words
+        words=(''${=base})
+        if (( ''${#words} == 0 )); then
+          echo "dicepass: diceware produced no output" >&2
+          return 1
+        fi
+
+        local specials="!@#$%^&*_-+=:?"
+        local digit special
+        digit=$(shuf -i 0-9 -n 1)
+        special=$(printf "%s" "$specials" | fold -w1 | shuf -n 1)
+
+        # Pick two distinct gaps between words (gap 1 = before first
+        # word, gap nw+1 = after last word) and drop the digit and the
+        # special char into them, e.g. Random5Words!Fun.
+        local nw="''${#words}"
+        local g1 g2
+        g1=$(shuf -i 1-$(( nw + 1 )) -n 1)
+        g2=$(shuf -i 1-$(( nw + 1 )) -n 1)
+        while (( g1 == g2 )); do
+          g2=$(shuf -i 1-$(( nw + 1 )) -n 1)
+        done
+        local t1 t2
+        if [[ $(shuf -i 0-1 -n 1) == 0 ]]; then
+          t1="$digit"; t2="$special"
+        else
+          t1="$special"; t2="$digit"
+        fi
+
+        local result="" k
+        for (( k=1; k<=nw+1; k++ )); do
+          (( k == g1 )) && result+="$t1"
+          (( k == g2 )) && result+="$t2"
+          (( k <= nw )) && result+="''${words[k]}"
+        done
+
+        if command -v wl-copy >/dev/null; then
+          printf "%s" "$result" | wl-copy
+          echo "$result"
+          echo "(copied to clipboard)" >&2
+        else
+          echo "$result"
+        fi
+      }
+
       function anki() {
           if ! pgrep anki > /dev/null; then
               hyprctl dispatch exec "[workspace 8] anki"

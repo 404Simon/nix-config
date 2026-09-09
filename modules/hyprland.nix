@@ -151,6 +151,7 @@ in
 
         # Audio
         "$superShift, a, exec, ${scriptsDir}/speaker_switch.sh"
+        "$superShift, e, exec, ${scriptsDir}/emoji_picker.sh"
         "$mainMod, s, exec, ${scriptsDir}/song_picker.sh"
         "$superShift, s, exec, ${pkgs.foot}/bin/foot --title=rmpc-snapshot -e ${scriptsDir}/rmpc_snapshot.sh"
         "$superShift, r, exec, ${pkgs.foot}/bin/foot --title=rmpc-float -e rmpc"

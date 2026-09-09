@@ -1,0 +1,16 @@
+/* Emoji picker only. */
+window {
+  font-size: 22px;
+}
+
+#input {
+  font-size: 22px;
+}
+
+#entry {
+  padding: 6px;
+}
+
+#text {
+  font-size: 22px;
+}
