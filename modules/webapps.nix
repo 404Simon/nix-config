@@ -2,12 +2,11 @@
 
 let
   mkWebApp =
-    {
-      name,
-      url,
-      comment ? null,
-      icon ? null,
-      categories ? [ "Network" ],
+    { name
+    , url
+    , comment ? null
+    , icon ? null
+    , categories ? [ "Network" ]
     }:
     pkgs.makeDesktopItem {
       inherit name categories;
@@ -58,6 +57,10 @@ in
     (mkWebApp {
       name = "Splitify";
       url = "https://splitify.404simon.de/groups";
+    })
+    (mkWebApp {
+      name = "News";
+      url = "https://news.404simon.de";
     })
   ];
 }

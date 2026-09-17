@@ -40,6 +40,7 @@ in
     pkgs.isort
     pkgs.nixpkgs-fmt
     pkgs.yamlfmt
+    pkgs.google-java-format
   ];
 
   plugins.conform-nvim = {
@@ -78,6 +79,7 @@ in
         css = [ "prettier" ];
         yaml = [ "yamlfmt" ];
         markdown = [ "prettier" ];
+        java = [ "google-java-format" ];
       };
     };
   };

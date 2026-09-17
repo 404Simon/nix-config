@@ -1,7 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }:
 
 let
@@ -123,6 +122,7 @@ in
 
         "$mainMod, A, exec, w=$(hyprctl activeworkspace | head -n1 | grep -o 'ID [0-9]' | cut -d' ' -f2); if [ \"$w\" = \"1\" ]; then $browser; elif [ \"$w\" = \"2\" ]; then $terminal; elif [ \"$w\" = \"4\" ]; then vivaldi; elif [ \"$w\" = \"7\" ]; then thunderbird; elif [ \"$w\" = \"8\" ]; then spotify; elif [ \"$w\" = \"9\" ]; then vesktop; fi"
         "$mainMod, J, exec, sioyek --new-window"
+        "$superShift, J, exec, sioyek --new-window"
         "$mainMod, k, exec, keepassxc"
 
         # Window management
@@ -195,8 +195,8 @@ in
         ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
-        ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+        ",XF86MonBrightnessUp, exec, brightnessctl s 5%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
         ",KP_Delete, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ];
 
