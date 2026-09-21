@@ -1,4 +1,15 @@
+{ pkgs, ... }:
 {
+  # Available to :terminal and :make, including clangd's compiler discovery.
+  extraPackages = with pkgs; [
+    gcc
+    cmake
+    ninja
+    gnumake
+    gdb
+    bear
+  ];
+
   imports = [
     ./options.nix
     ./colorscheme.nix

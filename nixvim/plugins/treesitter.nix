@@ -9,6 +9,9 @@
 
     grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
       bash
+      c
+      cpp
+      cmake
       html
       css
       json

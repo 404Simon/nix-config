@@ -18,15 +18,18 @@
         sha256 = "sha256-2maNEhbH5eFzqyQ9ts2jKQMfMOvP8DfzAfY/flILxqs=";
       })
     ]
-    ++ builtins.map (
-      file:
-      pkgs.runCommand file { } ''
-        cp ${../resources/qutebrowser/greasemonkey + "/${file}"} $out
-      ''
-    ) (builtins.attrNames (builtins.readDir ../resources/qutebrowser/greasemonkey));
+    ++ builtins.map
+      (
+        file:
+        pkgs.runCommand file { } ''
+          cp ${../resources/qutebrowser/greasemonkey + "/${file}"} $out
+        ''
+      )
+      (builtins.attrNames (builtins.readDir ../resources/qutebrowser/greasemonkey));
 
     settings = {
       auto_save.session = true;
+      session.lazy_restore = true;
       scrolling.smooth = false;
       colors.webpage.darkmode.enabled = true;
       downloads.location.directory = "~/Downloads";

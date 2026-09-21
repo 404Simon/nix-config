@@ -41,6 +41,7 @@ in
     pkgs.nixpkgs-fmt
     pkgs.yamlfmt
     pkgs.google-java-format
+    pkgs.clang-tools
   ];
 
   plugins.conform-nvim = {
@@ -59,6 +60,8 @@ in
       '';
 
       formatters_by_ft = {
+        c = [ "clang_format" ];
+        cpp = [ "clang_format" ];
         lua = [ "stylua" ];
         go = [
           "gofmt"

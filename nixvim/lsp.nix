@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
   plugins.lspconfig.enable = true;
@@ -15,7 +15,17 @@
     };
 
     servers = {
-      clangd.enable = true;
+      clangd = {
+        enable = true;
+        config.cmd = [
+          "${pkgs.clang-tools}/bin/clangd"
+          "--background-index"
+          "--clang-tidy"
+          "--completion-style=detailed"
+          # Only trust the compiler provided by this configuration.
+          "--query-driver=${pkgs.gcc}/bin/*"
+        ];
+      };
 
       docker_compose_language_service.enable = true;
 

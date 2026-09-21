@@ -75,6 +75,23 @@ in
         echo "$s"
       }
 
+      eternal-current() {
+        local song
+
+        if (( $# > 0 )); then
+          /home/simon/dev/eternal-jukebox-rs/target/release/eternal "$@"
+          return
+        fi
+
+        song="$(rmpc song 2>/dev/null | jq -r '.file // empty')"
+
+        if [[ -n "$song" ]]; then
+          rmpc pause && /home/simon/dev/eternal-jukebox-rs/target/release/eternal "$HOME/Music/$song"
+        else
+          /home/simon/dev/eternal-jukebox-rs/target/release/eternal "$@"
+        fi
+      }
+
       function dicepass() {
         local n="''${1:-5}"
         if [[ "$n" == "-h" || "$n" == "--help" ]]; then
@@ -179,6 +196,7 @@ in
       jo = "cd /home/simon/dev/VesSkel";
       napari = "~/dev/VesSkel/.venv/bin/napari";
       r = "rmpc";
+      eternal = "eternal-current";
 
       suspend = "systemctl suspend";
       open = "xdg-open";
@@ -283,12 +301,12 @@ in
         truncation_symbol = "…/";
         truncate_to_repo = false;
         substitutions = {
-          "Documents" = "󰈙 ";
-          "Downloads" = " ";
-          "Music" = " ";
-          "Pictures" = " ";
+          "Documents" = "󰈙";
+          "Downloads" = "";
+          "Music" = "";
+          "Pictures" = "";
           "~/dev" = "δ";
-          "dotfiles" = "⚙ ";
+          "dotfiles" = "⚙";
           "nix-config" = "";
         };
       };

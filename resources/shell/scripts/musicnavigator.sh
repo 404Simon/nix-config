@@ -5,8 +5,14 @@ music_dirs=("Music" "${music_dirs[@]}")
 
 target=$(printf "%s\n" "${music_dirs[@]}" | gum filter)
 
-if [ "$target" == "Music" ]; then
-    echo "cd ~/Music/"
-else
-    echo "cd ~/Music/$target"
+if [ -z "$target" ]; then
+    exit 0
 fi
+
+if [ "$target" == "Music" ]; then
+    target="$HOME/Music"
+else
+    target="$HOME/Music/$target"
+fi
+
+printf 'cd -- %q\n' "$target"
