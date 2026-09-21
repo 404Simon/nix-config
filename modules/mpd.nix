@@ -44,6 +44,16 @@ in
     '';
   };
 
+  services.mpd-mpris = {
+    enable = true;
+    mpd = {
+      useLocal = false; # use unix socket instead of default TCP
+      network = "unix";
+      host = "${config.home.homeDirectory}/.mpd/socket";
+    };
+  };
+  systemd.user.services.mpd-mpris.Unit.Requires = [ "mpd.service" ];
+
   home.file."Music/mpd/playlists/correct_paths.sh" = {
     source = correctPathsScript;
     executable = true;

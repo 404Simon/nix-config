@@ -155,7 +155,7 @@ in
         "$mainMod, s, exec, ${scriptsDir}/song_picker.sh"
         "$superShift, s, exec, ${pkgs.foot}/bin/foot --title=rmpc-snapshot -e ${scriptsDir}/rmpc_snapshot.sh"
         "$superShift, r, exec, ${pkgs.foot}/bin/foot --title=rmpc-float -e rmpc"
-        "$mainMod, r, exec, rmpc togglepause"
+        "$mainMod, r, exec, playerctl play-pause"
         "$superShift, p, exec, ${scriptsDir}/playlist_selection.sh"
         "$mainMod, p, exec, hyprpicker -a"
 
