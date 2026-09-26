@@ -9,5 +9,7 @@ choice=$(echo "$songs" | wofi --dmenu -i -p "Choose song:")
 if [ -z "$(rmpc queue)" ]; then
   rmpc add "$choice"
 else
-  rmpc add --position +0 "$choice"
+  # Relative position needs a current song; when stopped (song=null)
+  # it fails with "No current song", so fall back to appending.
+  rmpc add --position +0 "$choice" || rmpc add "$choice"
 fi
