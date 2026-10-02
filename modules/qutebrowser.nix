@@ -86,7 +86,7 @@
     quickmarks = {
       yt = "https://www.youtube.com";
       my = "https://www.mydealz.de";
-      gh = "https://github.com";
+      gh = "https://github.com/feed";
       campo = "https://www.campo.fau.de";
       gem = "https://gemini.google.com/app";
       lm = "https://notebooklm.google.com/";
@@ -95,6 +95,7 @@
       rr = "https://app.researchrabbit.ai/search";
       geiz = "https://geizhals.de";
       tr = "https://translate.google.com/?sl=auto&tl=de";
+      r = "https://www.reddit.com/";
     };
 
     keyBindings.normal = {

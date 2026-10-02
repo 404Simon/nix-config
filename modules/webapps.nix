@@ -62,5 +62,9 @@ in
       name = "News";
       url = "https://news.404simon.de";
     })
+    (mkWebApp {
+      name = "ChatGPT";
+      url = "https://chatgpt.com/";
+    })
   ];
 }
