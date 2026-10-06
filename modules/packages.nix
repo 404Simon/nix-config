@@ -11,6 +11,7 @@
       rsync
       croc
       restic
+      audacity
       localsend
       pdftk
       pdfchain
@@ -43,10 +44,10 @@
       nodejs
       go
       uv
+      apptainer
       rustup # includes cargo
       php
       phpPackages.composer
-      bun
       pnpm
       yazi
       keepassxc
@@ -106,5 +107,6 @@
       just
       yt-dlp
       gimp
+      bun
     ]);
 }

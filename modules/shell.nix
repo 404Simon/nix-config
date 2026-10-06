@@ -76,9 +76,37 @@ in
       }
 
       eternal-current() {
-        local song
+        local song arg skip_next=0 has_input=0 has_subcommand=0
 
-        if (( $# > 0 )); then
+        # Scan args: options taking a value, subcommands, or a positional INPUT.
+        for arg in "$@"; do
+          if (( skip_next )); then
+            skip_next=0
+            continue
+          fi
+          case "$arg" in
+            --threshold|--island-threshold|--seed)
+              skip_next=1
+              ;;
+            --threshold=*|--island-threshold=*|--seed=*)
+              ;;
+            -h|--help|-V|--version)
+              /home/simon/dev/eternal-jukebox-rs/target/release/eternal "$@"
+              return
+              ;;
+            play|pause|toggle|status|help)
+              has_subcommand=1
+              ;;
+            -*)
+              ;;
+            *)
+              has_input=1
+              ;;
+          esac
+        done
+
+        # Explicit file and/or subcommand given: pass through untouched.
+        if (( has_input || has_subcommand )); then
           /home/simon/dev/eternal-jukebox-rs/target/release/eternal "$@"
           return
         fi
@@ -86,7 +114,7 @@ in
         song="$(rmpc song 2>/dev/null | jq -r '.file // empty')"
 
         if [[ -n "$song" ]]; then
-          rmpc pause && /home/simon/dev/eternal-jukebox-rs/target/release/eternal "$HOME/Music/$song"
+          rmpc pause && /home/simon/dev/eternal-jukebox-rs/target/release/eternal "$@" "$HOME/Music/$song"
         else
           /home/simon/dev/eternal-jukebox-rs/target/release/eternal "$@"
         fi

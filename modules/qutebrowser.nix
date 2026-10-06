@@ -70,6 +70,7 @@
       np = "https://search.nixos.org/packages?query={}";
       no = "https://search.nixos.org/options?query={}";
       wiki = "https://en.wikipedia.org/wiki/Special:Search?search={}";
+      wikide = "https://de.wikipedia.org/wiki/Special:Search?search={}";
       dhl = "https://www.dhl.de/de/privatkunden/pakete-empfangen/verfolgen.html?piececode={}";
       hermes = "https://www.myhermes.de/empfangen/sendungsverfolgung/sendungsinformation#{}";
       cargo = "https://crates.io/search?q={}";
@@ -96,6 +97,7 @@
       geiz = "https://geizhals.de";
       tr = "https://translate.google.com/?sl=auto&tl=de";
       r = "https://www.reddit.com/";
+      oc = "https://opencode.ai/console";
     };
 
     keyBindings.normal = {
