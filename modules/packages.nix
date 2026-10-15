@@ -52,7 +52,6 @@
       yazi
       keepassxc
       zapzap
-      signal-desktop
       vesktop
       obs-studio
       radicle-node
@@ -108,5 +107,6 @@
       yt-dlp
       gimp
       bun
+      signal-desktop
     ]);
 }

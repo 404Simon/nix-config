@@ -219,6 +219,7 @@ in
       m = "eval \"$(${scriptsDir}/musicnavigator.sh)\"";
       o = "cd \"$OBSIDIAN_VAULT\" && nvim";
       squeue = "ssh tinyx squeue";
+      alexq = "ssh alex squeue";
 
       lyrics = "${scriptsDir}/lyric_search.py";
       plz = "${scriptsDir}/plz.sh";

@@ -98,6 +98,7 @@
       tr = "https://translate.google.com/?sl=auto&tl=de";
       r = "https://www.reddit.com/";
       oc = "https://opencode.ai/console";
+      mygh = "https://github.com/404Simon";
     };
 
     keyBindings.normal = {
