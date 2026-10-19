@@ -108,5 +108,6 @@
       gimp
       bun
       signal-desktop
+      chiaki-ng
     ]);
 }
