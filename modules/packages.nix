@@ -1,10 +1,10 @@
 { pkgs, pkgs-unstable, pdf-extract, ... }:
-
 {
   home.packages =
     (with pkgs; [
       (vivaldi.override { proprietaryCodecs = true; })
       ungoogled-chromium
+      firefox
       kdePackages.dolphin
       kdePackages.kdenlive
       imagemagick

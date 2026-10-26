@@ -4,6 +4,7 @@
   imports = [
     ./modules/packages.nix
     ./modules/shell.nix
+    ./modules/android.nix
     ./modules/neovim.nix
     ./modules/git.nix
     ./modules/tmux.nix

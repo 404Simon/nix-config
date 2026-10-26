@@ -68,6 +68,13 @@ in
       }
       compdef '_files -g "*.(pdf|PDF|epub)"' op
 
+      # Open function with completion
+      pdf() {
+          /home/simon/dev/pdfcraft/target/release/pdfcraft "$@" >/dev/null 2>&1 &
+          disown
+      }
+      compdef '_files -g "*.(pdf|PDF|epub)"' pdf
+
       slug() {
         local s="$(wl-paste)"
         s="$(echo "$s" | sed 's/[^a-zA-Z0-9_-]/_/g;s/__*/_/g;s/^_//;s/_$//')"
@@ -255,9 +262,9 @@ in
     FZF_ALT_C_COMMAND = "fd --type=d --hidden --strip-cwd-prefix --exclude .git";
     FZF_DEFAULT_OPTS = "--color=fg:#CBE0F0,bg:#011628,hl:#B388FF,fg+:#CBE0F0,bg+:#143652,hl+:#B388FF,info:#06BCE4,prompt:#2CF9ED,pointer:#2CF9ED,marker:#2CF9ED,spinner:#2CF9ED,header:#2CF9ED";
 
-    JAVA_HOME = "$HOME/.jdks/selected_java/java";
-    GRAAL_HOME = "$HOME/.jdks/selected_java/java";
-    GRAALVM_HOME = "$HOME/.jdks/selected_java/java";
+    # Java: the default JDK is Arch-managed (`archlinux-java`), so `java`/`javac`
+    # resolve via /usr/lib/jvm/default-runtime. No JAVA_HOME pin here — projects
+    # that need a specific JDK should export it themselves.
 
     # Wallpaper configuration
     WALLPAPER_DIR = "${wallpaperConfig.wallpaperDir}";
@@ -271,7 +278,6 @@ in
     "$HOME/.cargo/bin"
     "$HOME/.composer/vendor/bin"
     "$HOME/.config/composer/vendor/bin"
-    "$HOME/.jdks/selected_java/java/bin"
     scriptsDir
   ];
 
