@@ -109,5 +109,6 @@
       bun
       signal-desktop
       chiaki-ng
+      scc # lines of code loc counter
     ]);
 }

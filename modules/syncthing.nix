@@ -27,6 +27,7 @@
             "pc"
             "dell"
             "pixel"
+            "xmg"
           ];
         };
         Downloads = {
