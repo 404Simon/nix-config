@@ -37,6 +37,13 @@
             "dell"
           ];
         };
+        Notes = {
+          path = "/home/simon/obsidian-vault";
+          devices = [
+            "dell"
+            "pixel"
+          ];
+        };
       };
     };
   };
