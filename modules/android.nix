@@ -42,8 +42,14 @@ let
   androidSdkRoot = "${androidSdk.androidsdk}/libexec/android-sdk";
 in
 {
-  # Puts adb, fastboot, sdkmanager, avdmanager and lint on PATH.
-  home.packages = [ androidSdk.androidsdk ];
+  # Puts adb, fastboot, sdkmanager, avdmanager and lint on PATH, plus the
+  # reverse-engineering tools apktool (APK decode/rebuild) and jadx
+  # (dex -> Java decompiler).
+  home.packages = [
+    androidSdk.androidsdk
+    pkgs-unstable.apktool
+    pkgs-unstable.jadx
+  ];
 
   home.sessionVariables = {
     ANDROID_HOME = androidSdkRoot;

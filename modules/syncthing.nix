@@ -44,6 +44,13 @@
             "pixel"
           ];
         };
+        Vorlesungen = {
+          path = "/home/simon/Vorlesungen";
+          devices = [
+            "dell"
+            "pixel"
+          ];
+        };
       };
     };
   };
