@@ -92,6 +92,7 @@
       (pkgs.python3.withPackages (
         ps: with ps; [
           pylatexenc
+          pyyaml
         ]
       ))
     ])
@@ -99,9 +100,7 @@
       pangolin-cli
       librepods
       mixxx
-      codex
       vscode
-      tabiew
       tex-fmt
       just
       yt-dlp

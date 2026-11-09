@@ -88,7 +88,7 @@
 
       tinymist.enable = true;
 
-      tsgo.enable = true;
+      vtsls.enable = true;
     };
 
     keymaps = [
