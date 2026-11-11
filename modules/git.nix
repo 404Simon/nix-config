@@ -22,6 +22,9 @@
       core = {
         editor = "nvim";
       };
+      merge = {
+        conflictStyle = "zdiff3";
+      };
       pull = {
         rebase = true;
       };
@@ -33,7 +36,37 @@
       };
     };
   };
-  programs.lazygit.enable = true;
+  programs.delta = {
+    enable = true;
+    # Delta >= 0.20 speaks lazygit's OSC 1717 metadata protocol, which lets the
+    # delta-rendered diff stay on screen when the main view is focused.
+    package = pkgs-unstable.delta;
+    # Sets core.pager and interactive.diffFilter in git config.
+    enableGitIntegration = true;
+    options = {
+      navigate = true;
+      "line-numbers" = true;
+      "syntax-theme" = "tokyonight_night";
+    };
+  };
+  programs.lazygit = {
+    enable = true;
+    # `diffRenderers` requires lazygit >= 0.66; nixpkgs stable still ships 0.56.
+    package = pkgs-unstable.lazygit;
+    settings = {
+      git.diffRenderers = [
+        # Lazygit doesn't read git's pager config, so delta must be set explicitly.
+        # Hunk headers are redundant with line numbers here, and the boxed
+        # decoration looks odd inside lazygit's border.
+        {
+          command = "delta --{{colorScheme}} --paging=never --line-numbers --hunk-header-style=omit";
+        }
+      ];
+      # Focusing a diff would otherwise switch to lazygit's raw hunk-selection
+      # view, which cannot use delta. Toggle that view with `a` when needed.
+      gui.useHunkModeInDiffView = false;
+    };
+  };
   programs.gh.enable = true;
   programs.gh.extensions = [
     pkgs-unstable.gh-dash
