@@ -1,3 +1,6 @@
+vim.opt_local.linebreak = true
+vim.b.disable_autoformat = true
+
 vim.keymap.set("n", "<leader>p", function()
 	local dir = vim.fn.expand("%:p:h")
 	local makefiles = {
