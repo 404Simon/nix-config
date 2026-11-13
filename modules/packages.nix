@@ -52,7 +52,6 @@
       yazi
       keepassxc
       zapzap
-      vesktop
       obs-studio
       radicle-node
       wl-clipboard-rs
@@ -109,5 +108,6 @@
       signal-desktop
       chiaki-ng
       scc # lines of code loc counter
+      discord
     ]);
 }

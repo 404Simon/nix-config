@@ -401,6 +401,15 @@ in
   };
 
   services.cliphist.enable = true;
+
+  # Take over the clipboard right after every copy and serve the data from
+  # our own process. On Wayland the app that copied keeps owning the
+  # selection and has to hand out the data on every paste; some apps
+  # (Chromium/web apps, XWayland, Electron) fail at that once they lose
+  # focus, which shows up as "paste does nothing until I re-copy it from
+  # the cliphist picker". This also keeps the clipboard after the source
+  # app is closed.
+  services.wl-clip-persist.enable = true;
   services.mako = {
     enable = true;
     settings = {

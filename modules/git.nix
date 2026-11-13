@@ -1,6 +1,5 @@
-{
-  pkgs-unstable,
-  ...
+{ pkgs-unstable
+, ...
 }:
 
 {
@@ -65,6 +64,7 @@
       # Focusing a diff would otherwise switch to lazygit's raw hunk-selection
       # view, which cannot use delta. Toggle that view with `a` when needed.
       gui.useHunkModeInDiffView = false;
+      gui.showCommandLog = false;
     };
   };
   programs.gh.enable = true;
