@@ -53,6 +53,7 @@
     # `diffRenderers` requires lazygit >= 0.66; nixpkgs stable still ships 0.56.
     package = pkgs-unstable.lazygit;
     settings = {
+      git.overrideGpg = true;
       git.diffRenderers = [
         # Lazygit doesn't read git's pager config, so delta must be set explicitly.
         # Hunk headers are redundant with line numbers here, and the boxed

@@ -230,7 +230,7 @@ in
 
       lyrics = "${scriptsDir}/lyric_search.py";
       plz = "${scriptsDir}/plz.sh";
-      jo = "cd /home/simon/dev/OpenAuditOwl-Paper";
+      jo = "cd /home/simon/dev/OpenAuditOwl-Home";
       napari = "~/dev/VesSkel/.venv/bin/napari";
       r = "rmpc";
       eternal = "eternal-current";

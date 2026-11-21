@@ -63,7 +63,8 @@
     };
 
     searchEngines = {
-      DEFAULT = "https://www.startpage.com/sp/search?query={}";
+      DEFAULT = "https://search.404simon.de/search?q={}";
+      s = "https://www.startpage.com/sp/search?query={}";
       g = "https://www.google.com/search?q={}";
       gh = "https://github.com/search?q={}";
       nw = "https://wiki.nixos.org/w/index.php?search={}";
